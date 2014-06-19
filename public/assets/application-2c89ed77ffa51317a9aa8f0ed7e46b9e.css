@@ -1,0 +1,1170 @@
+.dp-highlighter
+{
+	font-family: "Consolas", "Courier New", Courier, mono, serif;
+	font-size: 12px;
+	background-color: #E7E5DC;
+	width: 99%;
+	overflow: auto;
+	margin: 18px 0 18px 0 !important;
+	padding-top: 1px; /* adds a little border on top when controls are hidden */
+}
+
+/* clear styles */
+.dp-highlighter ol,
+.dp-highlighter ol li,
+.dp-highlighter ol li span 
+{
+	margin: 0;
+	padding: 0;
+	border: none;
+}
+
+.dp-highlighter a,
+.dp-highlighter a:hover
+{
+	background: none;
+	border: none;
+	padding: 0;
+	margin: 0;
+}
+
+.dp-highlighter .bar
+{
+	padding-left: 45px;
+}
+
+.dp-highlighter.collapsed .bar,
+.dp-highlighter.nogutter .bar
+{
+	padding-left: 0px;
+}
+
+.dp-highlighter ol
+{
+	list-style: decimal; /* for ie */
+	background-color: #fff;
+	margin: 0px 0px 1px 45px !important; /* 1px bottom margin seems to fix occasional Firefox scrolling */
+	padding: 0px;
+	color: #5C5C5C;
+}
+
+.dp-highlighter.nogutter ol,
+.dp-highlighter.nogutter ol li
+{
+	list-style: none !important;
+	margin-left: 0px !important;
+}
+
+.dp-highlighter ol li,
+.dp-highlighter .columns div
+{
+	list-style: decimal-leading-zero; /* better look for others, override cascade from OL */
+	list-style-position: outside !important;
+	border-left: 3px solid #6CE26C;
+	background-color: #F8F8F8;
+	color: #5C5C5C;
+	padding: 0 3px 0 10px !important;
+	margin: 0 !important;
+	line-height: 14px;
+}
+
+.dp-highlighter.nogutter ol li,
+.dp-highlighter.nogutter .columns div
+{
+	border: 0;
+}
+
+.dp-highlighter .columns
+{
+	background-color: #F8F8F8;
+	color: gray;
+	overflow: hidden;
+	width: 100%;
+}
+
+.dp-highlighter .columns div
+{
+	padding-bottom: 5px;
+}
+
+.dp-highlighter ol li.alt
+{
+	background-color: #FFF;
+	color: inherit;
+}
+
+.dp-highlighter ol li span
+{
+	color: black;
+	background-color: inherit;
+}
+
+/* Adjust some properties when collapsed */
+
+.dp-highlighter.collapsed ol
+{
+	margin: 0px;
+}
+
+.dp-highlighter.collapsed ol li
+{
+	display: none;
+}
+
+/* Additional modifications when in print-view */
+
+.dp-highlighter.printing
+{
+	border: none;
+}
+
+.dp-highlighter.printing .tools
+{
+	display: none !important;
+}
+
+.dp-highlighter.printing li
+{
+	display: list-item !important;
+}
+
+/* Styles for the tools */
+
+.dp-highlighter .tools
+{
+	padding: 3px 8px 3px 10px;
+	font: 9px Verdana, Geneva, Arial, Helvetica, sans-serif;
+	color: silver;
+	background-color: #f8f8f8;
+	padding-bottom: 10px;
+	border-left: 3px solid #6CE26C;
+}
+
+.dp-highlighter.nogutter .tools
+{
+	border-left: 0;
+}
+
+.dp-highlighter.collapsed .tools
+{
+	border-bottom: 0;
+}
+
+.dp-highlighter .tools a
+{
+	font-size: 9px;
+	color: #a0a0a0;
+	background-color: inherit;
+	text-decoration: none;
+	margin-right: 10px;
+}
+
+.dp-highlighter .tools a:hover
+{
+	color: red;
+	background-color: inherit;
+	text-decoration: underline;
+}
+
+/* About dialog styles */
+
+.dp-about { background-color: #fff; color: #333; margin: 0px; padding: 0px; }
+.dp-about table { width: 100%; height: 100%; font-size: 11px; font-family: Tahoma, Verdana, Arial, sans-serif !important; }
+.dp-about td { padding: 10px; vertical-align: top; }
+.dp-about .copy { border-bottom: 1px solid #ACA899; height: 95%; }
+.dp-about .title { color: red; background-color: inherit; font-weight: bold; }
+.dp-about .para { margin: 0 0 4px 0; }
+.dp-about .footer { background-color: #ECEADB; color: #333; border-top: 1px solid #fff; text-align: right; }
+.dp-about .close { font-size: 11px; font-family: Tahoma, Verdana, Arial, sans-serif !important; background-color: #ECEADB; color: #333; width: 60px; height: 22px; }
+
+/* Language specific styles */
+
+.dp-highlighter .comment, .dp-highlighter .comments { color: #008200; background-color: inherit; }
+.dp-highlighter .string { color: blue; background-color: inherit; }
+.dp-highlighter .keyword { color: #069; font-weight: bold; background-color: inherit; }
+.dp-highlighter .preprocessor { color: gray; background-color: inherit; }
+.stylbutton{
+	-webkit-box-shadow: rgba(0, 0, 0, 0.0.97) 0px 1px 0px 0px;
+	background-color: #5B74A8;
+	border: 1px solid #29447E;
+	font-family: 'Lucida Grande', Tahoma, Verdana, Arial, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 2px 6px;
+	height: 28px;
+	color: #fff;
+	border-radius: 5px;
+	width:65px;
+}
+blockquote, body, button, code, dd, div, dl, dt, fieldset, form, h1, h2, h3, h4, h5, h6, img, legend, li, ol, p, pre, td, th, ul {
+	margin:0;
+	padding:0;
+	border:0;
+	vertical-align:baseline;
+}
+address, blockquote, dl, fieldset, form, h1, h2, h3, h4, h5, h6, ol, p, table, ul {
+	margin:15px 0;
+}
+body {
+	background:url("bg2.png") 0 0 repeat-x;
+	font:0.8em/1.6 "arial", sans-serif;
+}
+a {
+	text-decoration:none;
+}
+h1 {
+	font-size:300%;
+	line-height:1;
+}
+h2 {
+	font-size:200%;
+}
+h3 {
+	font-size:160%;
+}
+h4, h5, h6 {
+	font-size:120%;
+}
+form ul {
+	list-style:none;
+}
+form li {
+	display:block;
+	padding-bottom:7px;
+}
+form li label {
+	display:block;
+	padding-bottom:3px;
+}
+input, select, textarea {
+	font-size:100%;
+	font-family:"arial", sans-serif;
+}
+/*table.table {
+	border-collapse:collapse;
+	border-spacing:0;
+}
+table.table th, table.table td {
+	padding:7px 10px;
+}
+table.table th {
+	font-weight:bold;
+}*/
+ul.ul {
+	margin-left:20px;
+	list-style:none;
+}
+ul.ul li {
+	padding-left:15px;
+	background:url("ul.gif") 0 5px no-repeat;
+}
+ul.ul ul {
+	margin:0 0 0 20px;
+	list-style:none;
+}
+img.f-left {
+	margin-right:15px;
+}
+img.f-right {
+	margin-left:15px;
+}
+#main {
+	width:960px;
+	margin:0 auto;
+}
+#header {
+	position:relative;
+	height:150px;
+	overflow:hidden;
+}
+#header a {
+	border:0;
+}
+#header #logo {
+	position:absolute;
+	top:45px;
+	left:0;
+	margin:0;
+}
+#header #nav {
+	position:absolute;
+	top:45px;
+	right:9px;
+	margin:0;
+	list-style-type:none;
+}
+#header #nav li {
+	display:inline;
+	margin:0;
+	padding:0;
+}
+#header #nav a {
+	float:left;
+	margin-left:7px;
+	padding-left:17px;
+	background:url("nav-l.png") 0 -35px no-repeat;
+	text-decoration:none;
+}
+#header #nav a span {
+	float:left;
+	display:block;
+	padding-right:17px;
+	background:url("nav-r.png") 100% -35px no-repeat;
+	line-height:35px;
+}
+#header #nav a:hover {
+	background-position:0 -70px;
+}
+#header #nav a:hover span {
+	background-position:100% -70px;
+}
+#header #nav .current a {
+	background-position:0 0;
+	font-weight:bold;
+}
+#header #nav .current a span {
+	background-position:100% 0;
+}
+#header #nav-icons {
+	position:absolute;
+	top:58px;
+	right:0;
+	margin:0;
+}
+#header #nav-icons a {
+	margin-left:7px;
+}
+#title {
+	margin:0;
+	padding:25px 25px 45px 25px;
+	background:url("section.png") 0 100% no-repeat;
+}
+#section {
+	overflow:hidden;
+	margin:0 0 30px 0;
+	padding:5px 25px 0 25px;
+	background:url("hp-section.png") 575px 0 repeat-y;
+}
+#content {
+	float: right;
+	width:525px;
+	overflow:hidden;
+	text-align:justify;
+
+}
+#opening
+{
+    float: right;
+	top:5px;
+	left:230px;
+	width:100%;
+	text-align:justify;
+	position:absolute;
+}
+#aside {
+	float:right;
+	width:330px;
+	overflow:hidden;
+}
+#contact {
+	padding:15px 0;
+}
+#contact address {
+	margin:0;
+	font-style:normal;
+}
+#contact address span {
+	margin:0 3px;
+}
+#footer {
+	padding:15px 0 30px 0;
+}
+#footer p {
+	margin:0;
+}
+#hp #section {
+	margin:30px 0;
+	padding:0;
+	background:url("hp-section.png") 600px 0 repeat-y;
+}
+#hp #content {
+	float:left;
+	width:570px;
+	overflow:hidden;
+}
+#hp #aside {
+	float:right;
+	width:330px;
+	overflow:hidden;
+}
+#welcome {
+	position:relative;
+	height:380px;
+	overflow:hidden;
+	background:url("welcome.png") 0 0 no-repeat;
+}
+#welcum {
+	position:relative;
+	height:380px;
+	overflow:hidden;
+	background:url("welcome.png") 0 0 no-repeat; 
+}
+#welcome #imac {
+	position:absolute;
+	top:30px;
+	right:0;
+	width:398px;
+	height:330px;
+	overflow:hidden;
+	background:url("imac.png") 0 0 no-repeat;
+}
+#welcome #signup {
+	position: ;
+	top:30px;
+	right:0;
+	width:398px;
+	height:330px;
+	overflow:hidden;
+	background:url("signup.png") 0 0 no-repeat;
+}
+#welcome #imac #slider {
+	position:relative;
+	top:13px;
+	left:14px;
+	width:371px;
+	height:211px;
+	overflow:hidden;
+	margin:0;
+}
+#welcome #welcome-inner {
+	position:absolute;
+	top:1px;
+	left:157px;
+	width:536px;
+	padding:45px 0 0 0;
+}
+#welcome #welcome-inner h2 {
+	margin:0;
+	font-size:260%;
+	line-height:1.1;
+	letter-spacing:-1px;
+}
+#welcome #twitter {
+	position:absolute;
+	top:255px;
+	left:0;
+	width:515px;
+	background:url("twitter.png") 0 50% no-repeat;
+	font-size:85%;
+}
+#welcome #twitter ul {
+	margin:50px 0 0 75px;
+	list-style:none;
+}
+.products {
+	margin:15px 0;
+	list-style:none;
+}
+.products li {
+	padding:15px 0;
+}
+.products li.last {
+	border:0;
+}
+.products .products-img {
+	float:left;
+	width:160px;
+	height:120px;
+}
+.products .products-img img {
+	width:160px;
+	height:120px;
+}
+.products .products-desc {
+	float:right;
+	width:390px;
+}
+.products .products-desc h3 {
+	margin:0 0 10px 0;
+	font-size:140%;
+}
+.products .products-desc p {
+	margin:0;
+}
+.articles {
+	margin:15px 0;
+	list-style:none;
+}
+.articles li {
+	padding:15px 0 15px 50px;
+	background:url("articles.png") 0 10px no-repeat;
+}
+.articles li.last {
+	border:0;
+}
+.articles li h3 {
+	margin:0;
+	font-size:110%;
+}
+.articles li p {
+	margin:0;
+}
+.gallery li {
+	display:block;
+	float:left;
+	margin-right:10px;
+	width:168px;
+}
+.gallery li.last {
+	margin:0;
+}
+.sponsors {
+	margin:0;
+	list-style:none;
+	font-size:85%;
+}
+.sponsors li {
+	padding:10px 0;
+}
+.sponsors li a {
+	font-size:115%;
+}
+.box {
+	min-height:1px;
+	_height:1%;
+}
+.box:after {
+	display:block;
+	visibility:hidden;
+	clear:both;
+	line-height:0;
+	font-size:0;
+	content:".";
+}
+.fix {
+	float:none;
+	clear:both;
+	width:0;
+	height:0;
+	margin:0;
+	padding:0;
+	border:0;
+	line-height:0;
+	font-size:0;
+}
+.f-left {
+	float:left !important;
+}
+.f-right {
+	float:right !important;
+}
+.t-left {
+	text-align:left !important;
+}
+.t-center {
+	text-align:center !important;
+}
+.t-right {
+	text-align:right !important;
+}
+.t-justify {
+	text-align:justify !important;
+}
+.va-top {
+	vertical-align:top !important;
+}
+.va-middle {
+	vertical-align:middle !important;
+}
+.va-bottom {
+	vertical-align:bottom !important;
+}
+.nom {
+	margin:0 !important;
+}
+.nomt {
+	margin-top:0 !important;
+}
+.nomb {
+	margin-bottom:0 !important;
+}
+.hidden {
+	position:absolute;
+	left:-1000em;
+	top:auto;
+	width:1px;
+	height:1px;
+	overflow:hidden;
+}
+.noscreen {
+	display:none;
+}
+.smaller {
+	font-size:85%;
+}
+.input-text {
+	padding:5px;
+}
+.input-submit {
+	padding:3px;
+}
+.nivoSlider {
+	position:relative;
+}
+.nivoSlider img {
+	position:absolute;
+	top:0;
+	left:0;
+}
+.nivoSlider a.nivo-imageLink {
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	border:0;
+	padding:0;
+	margin:0;
+	z-index:60;
+	display:none;
+}
+.nivo-slice {
+	display:block;
+	position:absolute;
+	z-index:50;
+	height:100%;
+}
+.nivo-caption {
+	position:absolute;
+	left:0;
+	bottom:0;
+	background:#000;
+	color:#fff;
+	opacity:0.8;
+	width:100%;
+	z-index:89;
+}
+.nivo-caption p {
+	padding:5px;
+	margin:0;
+}
+.nivo-caption a {
+	display:inline !important;
+}
+.nivo-html-caption {
+	display:none;
+}
+.nivo-directionNav a {
+	position:absolute;
+	top:45%;
+	z-index:99;
+	cursor:pointer;
+}
+.nivo-prevNav {
+	left:0;
+}
+.nivo-nextNav {
+	right:0;
+}
+.nivo-controlNav a {
+	position:relative;
+	z-index:99;
+	cursor:pointer;
+}
+.nivo-controlNav a.active {
+	font-weight:bold;
+}
+.treeview ul{ /*CSS for Simple Tree Menu*/
+margin: 0;
+padding: 0;
+}
+
+.treeview li{ /*Style for LI elements in general (excludes an LI that contains sub lists)*/
+background: white url(list.gif) no-repeat left center;
+list-style-type: none;
+padding-left: 22px;
+margin-bottom: 3px;
+}
+
+.treeview li.submenu{ /* Style for LI that contains sub lists (other ULs). */
+background: white url(closed.gif) no-repeat left 1px;
+cursor: hand !important;
+cursor: pointer !important;
+}
+
+
+.treeview li.submenu ul{ /*Style for ULs that are children of LIs (submenu) */
+display: none; /*Hide them by default. Don't delete. */
+}
+
+.treeview .submenu ul li{ /*Style for LIs of ULs that are children of LIs (submenu) */
+cursor: default;
+}
+body {
+	background-color:#FFF;
+	color:#000;
+}
+a {
+	border-bottom:1px dotted #CCC;
+	color:#06C;
+}
+a:hover, a:active, a:focus {
+	color:#000;
+}
+h3 {
+	color:#06C;
+}
+table.table {
+	border:1px solid #C3CEEE;
+}
+table.table th, table.table td {
+	border:1px solid #C3CEEE;
+}
+table.table th {
+	border-bottom:3px solid #06C;
+	color:#06C;
+}
+table.table tr.even td {
+	background-color:#EEE;
+}
+#header #nav a {
+	color:#FFF;
+	text-shadow:1px 1px 0 #000;
+}
+#header #nav .current a {
+	color:#FFF;
+}
+#section {
+	background-color:#FFF;
+}
+#contact {
+	border-top:2px solid #DDD;
+}
+#contact address span {
+	color:#CCC;
+}
+#footer {
+	border-top:1px solid #DDD;
+	color:#555;
+}
+#footer a {
+	color:#555;
+}
+#footer a:hover {
+	color:#000;
+}
+#welcome {
+	border-bottom:2px solid #DDD;
+}
+#welcome #welcome-inner h2 {
+	color:#06C;
+}
+#welcome #twitter {
+	color:#555;
+}
+.products li {
+	border-bottom:1px solid #DDD;
+}
+.articles li {
+	border-bottom:1px solid #DDD;
+}
+.articles li .date {
+	color:#777;
+}
+.sponsors {
+	border-top:1px dotted #CCC;
+	color:#888;
+}
+.sponsors li {
+	border-bottom:1px dotted #CCC;
+}
+.input-text {
+	border:1px solid #CCC;
+	border-right:1px solid #EEE;
+	border-bottom:1px solid #EEE;
+	color:#888;
+}
+body {
+	background-color: #efefef;
+}
+
+body, html, input {
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:11px;
+	color: #333333;
+}
+
+.info {
+	font-style:italic;
+	font-size: 0.9em;
+	color: #666666;
+}
+#nave {width:714px; height:510px; position:relative; background:url(red_frog.jpg) no-repeat 0px 160px;}
+#nave h1 {font-size:25px; color:#000000;}
+#nave #content {clear:left; position:absolute; left:230px; top:10px; width:250px; z-index:10;}
+
+#menu {list-style-type:none; padding:0; margin:0; width:125px; position: static; top:70px; left:0; border:1px solid #fff; border-width:0 1px 1px; z-index:100;}
+#menu ul {list-style-type:none; padding:0; margin:0;}
+#menu li {float:left; background:#B0C4DE; position: relative; border-top:1px solid #fff;}
+
+#menu li.sub {background:#B0C4DE;}
+
+#menu li, #menu li a {display:block; color:#000000; font-family:arial, sans-serif; font-size:15px; line-height:24px; width:200px; text-decoration:none;  cursor:pointer; font-weight:bold; text-indent:5px;}
+
+
+#menu ul,
+#menu li:hover ul ul,
+#menu li:hover ul li:hover ul ul {display:none;}
+
+#menu li:hover {color:#000000; z-index:500;}
+
+#menu li:hover ul {display:block; height:75px;}
+#menu li:hover ul li:hover ul, 
+#menu li:hover ul li:hover ul li:hover ul {display:block; position: absolute; left:110px; top:-1px; border:1px solid #fff; border-width:0 1px 1px; height:auto;}
+
+#menu li:hover ul li.fly {background: #657 url(frog_arrow.gif) no-repeat top right;}
+#menu li:hover ul li:hover {background:#CAE1FF;}
+
+#menu li:hover ul li:hover ul li {background:#c60;}
+#menu li:hover ul li:hover ul li.hover ul li {background:#780; z-index:500;}
+
+#menu li:hover ul li:hover ul li.fly {background: #c60 url(frog_arrow.gif) no-repeat top right;}
+#menu li:hover ul li:hover ul li:hover {z-index:500; background:#fa4;}
+#menu li:hover ul li:hover ul li:hover a {color:#000;}
+
+#menu li:hover ul li:hover ul li:hover ul li:hover {background:#aa0;}
+#menu li:hover ul li:hover ul li.hover ul li:hover a {color:#fff;}
+
+#nave img {display:block; float:right;}
+#nave p {margin:0px; padding:17px 0 0 0; color:#000; font-size:12px; font-family:arial, sans-serif; text-align:justify;}
+/*-------------------------
+	Simple reset
+--------------------------*/
+
+
+
+*{
+	margin:0;
+	padding:0;
+}
+
+
+/*-------------------------
+	General Styles
+--------------------------*/
+
+
+html{
+	
+}
+
+body{
+	
+
+}
+
+a, a:visited {
+	text-decoration:none;
+	outline:none;
+	color:#54a6de;
+}
+
+a:hover{
+	text-decoration:underline;
+}
+
+section, footer{
+	display: block;
+}
+
+
+/*----------------------------
+	Styling the forms
+-----------------------------*/
+#formsignup{
+
+	width:100%;
+	height:100%;
+	position:absolute;
+	top:0;
+	left:0;
+	}
+
+#formContainer{
+	width:288px;
+	height:321px;
+	margin:0 auto;
+	position:  absolute;
+	z-index:1;
+	
+	-moz-perspective: 800px;
+	-webkit-perspective: 800px;
+	perspective: 800px;
+}
+
+#formContain{
+	width:300px;
+	height:321px;
+	margin:0 auto;
+	position:  absolute;
+	z-index:1;
+	
+	-moz-perspective: 800px;
+	-webkit-perspective: 800px;
+	perspective: 800px;
+}
+#formContainer form{
+	width:100%;
+	height:100%;
+	position:absolute;
+	top:0;
+	left:0;
+	
+	/* Enabling 3d space for the transforms */
+	-moz-transform-style: preserve-3d;
+	-webkit-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+	
+	/* When the forms are flipped, they will be hidden */
+	-moz-backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+	
+	/* Enabling a smooth animated transition */
+	-moz-transition:0.8s;
+	-webkit-transition:0.8s;
+	transition:0.8s;
+	
+	/* Configure a keyframe animation for Firefox */
+	-moz-animation: pulse 2s infinite;
+	
+	/* Configure it for Chrome and Safari */
+	-webkit-animation: pulse 2s infinite;
+}
+
+
+/* Firefox Keyframe Animation */
+@-moz-keyframes pulse{
+	0%{		box-shadow:0 0 1px #008aff;}
+	50%{	box-shadow:0 0 8px #008aff;}
+	100%{	box-shadow:0 0 1px #008aff;}
+}
+
+/* Webkit keyframe animation */
+@-webkit-keyframes pulse{
+	0%{		box-shadow:0 0 1px #008aff;}
+	50%{	box-shadow:0 0 10px #008aff;}
+	100%{	box-shadow:0 0 1px #008aff;}
+}
+
+#login{
+	/*background:url('../images/login_form_bg.jpg') no-repeat;*/
+	z-index:100;
+}
+
+#recover{
+	/*background:url('../images/recover_form_bg.jpg') no-repeat;*/
+	z-index:1;
+	opacity:0;
+	
+	/* Rotating the recover password form by default */
+	-moz-transform:rotateY(180deg);
+	-webkit-transform:rotateY(180deg);
+	transform:rotateY(180deg);
+}
+
+#formContainer.flipped #login{
+	
+	opacity:0;
+	
+	/**
+	 * Rotating the login form when the
+	 * flipped class is added to the container
+	 */
+	
+	-moz-transform:rotateY(-180deg);
+	-webkit-transform:rotateY(-180deg);
+	transform:rotateY(-180deg);
+}
+
+#formContainer.flipped #recover{
+	
+	opacity:1;
+	
+	/* Rotating the recover div into view */
+	-moz-transform:rotateY(0deg);
+	-webkit-transform:rotateY(0deg);
+	transform:rotateY(0deg);
+}
+
+
+/*----------------------------
+	Inputs, Buttons & Links
+-----------------------------*/
+
+
+#login .flipLink,
+#recover .flipLink{
+	
+	/* The blue ribbon links */
+	
+	height: 65px;
+    overflow: hidden;
+    position: absolute;
+    right: 0;
+    text-indent: -9999px;
+    top: 0;
+    width: 65px;
+}
+
+#recover .flipLink{
+	right:auto;
+	left:0;
+}
+
+#login:after{
+	/* The "Click here" tooltip */
+	width:112px;
+	height:16px;
+	content:'';
+	background:url('click_here.png') no-repeat;
+	position:absolute;
+	right:-120px;
+	top:22px;
+}
+
+#inputtext:input[type=text],input[type=password]{
+	/* The text fields */
+	font: 15px 'Segoe UI',Arial,sans-serif;
+	border: none;
+	background:none;
+	height: 20px;
+	left: 26px;
+	position: absolute;
+	top: 184px;
+	width: 115px;
+	text-indent: 8px;
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+	color:#eee;
+	outline:none;
+}
+
+#loginPass{
+	top: 215px;
+}
+
+#recoverEmail{
+	top:215px;
+}
+
+#inputsubmit:input[type=submit]{
+	
+	/* Submit button */
+	
+	opacity:0.9;
+	position:absolute;
+	top:262px;
+	left:25px;
+	width: 239px;
+	height:36px;
+	cursor:pointer;
+	border-radius:6px;
+	box-shadow:0 1px 1px #888;
+	border:none;
+	color:#fff;
+	font:14px/36px 'Segoe UI Light','Segoe UI',Arial,sans-serif;
+	
+	/* CSS3 Gradients */
+	
+	background-image: linear-gradient(bottom, rgb(80,102,127) 50%, rgb(87,109,136) 50%, rgb(106,129,155) 100%);
+	background-image: -o-linear-gradient(bottom, rgb(80,102,127) 50%, rgb(87,109,136) 50%, rgb(106,129,155) 100%);
+	background-image: -moz-linear-gradient(bottom, rgb(80,102,127) 50%, rgb(87,109,136) 50%, rgb(106,129,155) 100%);
+	background-image: -webkit-linear-gradient(bottom, rgb(80,102,127) 50%, rgb(87,109,136) 50%, rgb(106,129,155) 100%);
+	background-image: -ms-linear-gradient(bottom, rgb(80,102,127) 50%, rgb(87,109,136) 50%, rgb(106,129,155) 100%);
+	
+	background-image: -webkit-gradient(
+		linear,
+		left bottom,
+		left top,
+		color-stop(0.5, rgb(80,102,127)),
+		color-stop(0.5, rgb(87,109,136)),
+		color-stop(1, rgb(106,129,155))
+	);
+}
+
+input[type=submit]:hover{
+	opacity:1;
+}
+
+input::-webkit-input-placeholder {
+    color:#eee;
+}
+
+
+/*----------------------------
+	The Footer
+-----------------------------*/
+
+
+footer{
+	background-color: #111111;
+	bottom: 0;
+	box-shadow: 0 -1px 2px #111111;
+	height: 45px;
+	left: 0;
+	position: fixed;
+	width: 100%;
+	z-index: 100000;
+}
+
+footer h2{
+	color: #EEEEEE;
+	font-size: 14px;
+	font-weight: normal;
+	left: 50%;
+	margin-left: -400px;
+	padding: 13px 0 0;
+	position: absolute;
+	width: 540px;
+}
+
+footer h2 i{
+	font-style:normal;
+	color:#888;
+}
+
+footer a.tzine,a.tzine:visited{
+	color: #999999;
+	font-size: 12px;
+	left: 50%;
+	margin: 16px 0 0 110px;
+	position: absolute;
+	text-decoration: none;
+	top: 0;
+}
+
+footer a i{
+	color:#ccc;
+	font-style: normal;
+}
+
+footer a i b{
+	color:#c92020;
+	font-weight: normal;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+
+
+ */
+
