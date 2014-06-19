@@ -1,12 +1,12 @@
 <% provide(:title, 'Sign up') %>
 
 <h1 align="center">Sign up</h1>
-<div align="center">
-<table border align="center" >
-  <%= form_for(@user) do |f| %>
+<div align="center"> 
+<%= form_for(@user) do |f| %>
+  <table border align="center" >
     <tr>
-          <td style="font-size:15px">
-            First Name
+      <td style="font-size:15px">
+        First Name
           </td>
           <td>
             <%= f.text_field :first_name,:style => "height:15px" %>
@@ -327,6 +327,7 @@
           </td>
         </tr>
 
-    <% end %>
+
       </table>
+<% end %>
     </div>
