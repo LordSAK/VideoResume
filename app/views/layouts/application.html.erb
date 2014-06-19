@@ -1,18 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>VideoResume</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <link rel="stylesheet" media="screen,projection" type="text/css" href="main.css" />
-<link rel="stylesheet" media="screen,projection" type="text/css" href="nivo.css" />
-<link rel="stylesheet" media="screen,projection" type="text/css" href="skin.css" />
-<link rel="stylesheet" media="screen,projection" type="text/css" href="styles.css" />
-  <%= csrf_meta_tags %>
+	<title>VideoResume</title>
+	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	<%= stylesheet_link_tag "main.css" %>
+	<%= stylesheet_link_tag"nivo.css" %>
+	<%= stylesheet_link_tag"skin.css" %>
+	<%= stylesheet_link_tag "styles.css" %>
+	<%= csrf_meta_tags %>
 </head>
 <body>
-<%= render 'layouts/header' %>
-<%= yield %>
-
+	<%= render 'layouts/header' %>
+	<%= yield %>
 </body>
 </html>
