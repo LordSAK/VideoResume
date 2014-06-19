@@ -1,0 +1,173 @@
+  <div id="header" class="box">
+    <p id="logo"><a href="#"><img src="design/logo.png" alt="" /></a></p>
+    <ul id="nav">
+      <li class="current"><a href="index.php"><span>Home</span></a></li>
+      <li><a href="#"><span>About</span></a></li>
+      <li><a href="#"><span>Contact Us</span></a></li>
+    </ul>
+  </div>
+<style type="text/css">
+
+    #tabs {
+      width: 750px;
+      text-align: center;
+    }
+
+    #tablist {
+      padding: 3px 0;
+      font: bold 12px Verdana;
+      border-bottom: 1px solid #333333;
+    }
+
+    #tablist li {
+      list-style: none;
+      display: inline;
+    }
+
+    #tablist li a {
+      text-decoration: none;
+      padding: 3px 4px;
+      margin: 0 3px 0 0;
+      border: 1px solid #777788;
+      border-bottom: none;
+      background: #DDDEEE;
+    }
+
+    #tablist li a:link, #tablist li a:visited {
+      color: #444488;
+    }
+
+    #tablist li a:hover {
+      color: #000000;
+      background: #AAAAEE;
+      border-color: #222277;
+    }
+
+    #tablist li a.current {
+      background: #FFFFFF;
+      border-bottom: 1px solid #FFFFFF;
+    }
+
+                #content {
+  width: 690px;
+  margin: -1px auto 0 auto;
+  padding: 10px;
+  background: #FFFFFF;
+}
+
+</style>
+<h2 align="center">Registeration</h2>
+<%= form_for(:user,:html => {:id => "signup"},:url => { :method => :post }) do |f| %>
+<div style="margin:0 auto;" id="tabs">
+  <ul id="tablist">
+    <li>
+      <%= link_to "Candidate",signupcandidate_path,:class => "current" %>
+    </li>
+    <li>
+      <%= link_to "Consulting Company",signupcons_path %>
+    </li>
+    <li>
+      <%= link_to "Hiring Manager",signupmngr_path %>
+    </li>
+  </ul>    
+</div>
+<center>
+  <table cellpadding='2' cellspacing='0'  border="0" align="center" id='ap_table'>
+
+        <tr>
+
+    
+<td  style="padding:5">
+  
+<table class="table">
+      <tr width="20%">
+          <td  width="20%"> 
+              First Name: 
+          </td>
+          <td>
+              <%= f.text_field :First_Name, :class=>"tb_backcolor" ,placeholder: "First Name" %>
+          </td>
+          <td>
+              Last Name:
+          </td>
+          <td>
+              <%= f.text_field :Last_Name, :class=>"tb_backcolor" ,placeholder: "Last Name" %>
+          </td>
+      </tr>
+      <tr>
+          <td>
+              Email:
+          </td>
+          <td>
+              <%= f.text_field :Email,:class=>"tb_backcolor",placeholder: "Email" %>
+          </td>
+          <td>
+              Address:
+          </td>
+          <td>
+              <%= f.text_field :Address, :class=>"tb_backcolor" ,placeholder: "Address" %>
+          </td>
+      </tr>
+      <tr>
+          <td>
+              Password:
+          </td>
+          <td>
+              <%= f.text_field :Password, :class=>"tb_backcolor",placeholder: "Password" %>
+          </td>
+          <td>
+              Phone No.:
+          </td>
+          <td>
+              <%= f.text_field :Phone_Number, :class=>"tb_backcolor",placeholder: "Phone Number" %>
+          </td>
+      </tr>
+      <tr>
+          <td>
+              Verify Password:
+          </td>
+          <td>
+              <%= f.text_field :verift_password, :class=>"tb_backcolor" ,placeholder: "Re-enter" %>
+          </td>
+          <td>
+              Country:
+          </td>
+          <td>
+              <%= f.select :country, options_for_select([
+                                      "Select Country",
+                                      "United States",
+                                      "United Kingdom",
+                                      "Afghanistan",
+                                      "Albania",
+                                      "Algeria",
+                                      "American Samoa",
+                                      "Andorra",
+                                      "Angola",
+                                      "Anguilla",
+                                      "Antarctica",
+                                      "Antigua and Barbuda",
+                                      "Argentina",
+                                      "Armenia",
+                                      "Aruba",
+                                      "Australia",
+                                      "Brunei Darussalam",
+                                      "Bulgaria",
+              ]),:style => "width:200px" %>
+          </td>
+      </tr>
+</table>
+</center>
+<table style="text-align:center;" width="100%">
+  <tr>
+      <td>
+          <%= f.submit "SignUp" %>
+      </td>
+  </tr>
+</table>
+                    </td>
+
+      </tr>
+            
+</table>
+
+<% end %>

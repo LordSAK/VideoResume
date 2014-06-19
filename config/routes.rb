@@ -1,4 +1,13 @@
 Rails.application.routes.draw do
+  get "users/new"
+  resources :users
+  resources :templates
+
+  match '/signupcandidate', to: 'users#_candidate', via: 'get'
+  match '/signupcons', to: 'users#_consultingCompany', via: 'get'
+  match '/signupmngr', to: 'users#_hiringManager', via: 'get'
+
+  match '/signup',  to: 'users#new', via: 'get'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,0 +1,9 @@
+<%= form_for :template, :url => { :method => :post, :action => :create } do |f| %>
+	Name of Template:
+	<%= text_field_tag :TemplateName %>
+	<br/>
+	Section:
+	<%= text_field_tag :Section %>
+	<br/>
+	<input type="submit"  value="Create" >
+<% end %>
