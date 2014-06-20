@@ -77,13 +77,13 @@ div.row
 <% provide(:title, "Sign in") %>
 <h2 style="margin-left:30px;">Enter your login and password</h2>
 <%= form_for(:session, url: sessions_path) do |f| %>
-<table style="margin-left:30px;" border="1">
+<table style="margin-left:30px;font-size:medium" border="1">
       <tr>
           <td style="font-size:15px">
               Email:
           </td>
           <td> 
-              <%= f.text_field :email, :style => "height:15px" %>
+              <%= f.text_field :email  %>
           </td>
       </tr>
       <tr>
@@ -91,7 +91,7 @@ div.row
               Password:
           </td>
           <td>
-              <%= f.password_field :password, :style => "height:15px" %>
+              <%= f.password_field :password  %>
           </td>
       </tr>
       <tr>
@@ -109,7 +109,7 @@ div.row
 
           </td>
           <td style="text-align:left;">
-            <%= f.submit "Login", class: "btn btn-large btn-primary", :style => "width:50px; height:20px; font-size:10px;" %>
+            <%= f.submit "Login", class: "btn btn-large btn-primary", :style => "width:50px; height:22px; font-size:12px;" %>
           </td>
       </tr>
 </table>
