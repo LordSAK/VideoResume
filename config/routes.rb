@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
+  get "openings/new"
+  get "openings/edit"
   get "users/new"
   resources :users
   resources :templates
+  resources :openings
 
   match '/signupcandidate', to: 'users#_candidate', via: 'get'
   match '/signupcons', to: 'users#_consultingCompany', via: 'get'

@@ -1,0 +1,84 @@
+<div id="nave" >
+
+	<ul id="menu">
+		<li class="sub"><a href="recruiterviewresume.php">View Video Resume</a>
+		</li>
+		<li class="sub"><a href="recruiteropening.php">Openings</a>
+		</li>
+		<li class="sub"><a href="recruiteroption.php">Options</a>
+		</li>
+		<li class="sub"><a href="recruiterdecision.php">Decision</a>
+		</li>
+	</ul>
+	<div id="opening">
+		<%= form_for @opening do |f| %>
+    	<table class="table" border="0px" width="100%"  >
+        	<tr>
+            	<font size="+1"><th id="tableHeading" style="border-width:0px;"></th></font>
+        	</tr>
+        	<tr>
+        		<td>
+          			<table width="700"  border="0px" >
+             			<tr>
+             				<td style='border-width:0px'>
+             					Name
+             				</td>
+             				<td style='border-width:0px'>
+             					<%= f.text_field :OpeningTitle %>
+             				</td>
+             			</tr>
+             			<tr>
+             				<td style='border-width:0px'>
+             					Location
+             				</td>
+             				<td style='border-width:0px'>
+             					<%= f.text_field :OpeningLocation %>
+             				</td>
+             			</tr>
+             			<tr>
+             				<td style='border-width:0px'>
+             					Description
+             				</td>
+             				<td style='border-width:0px'>
+             					<%= f.text_field :OpeningDescription %>
+             				</td>
+             			</tr>
+             		</table>
+		        </td>
+        	</tr>
+        	<tr>
+            	<td >
+		            <table id="Categories" border="0px;" >
+    					<tr>
+			            	<td>
+            					<b>Pick Template from the following</b>
+	            			</td>
+    	        		</tr>
+    	        		<% @templates.each do |t| %>
+    	        			<tr>
+				      			<td style='border-width:0px'>
+   						  			<%= f.radio_button :template_id,t.id %><%= t.TemplateName%>
+   								</td>
+	   						</tr>
+	   					<% end %>
+						<tr>
+							<td style="border-width:0px;">
+                        	</td>
+	                        <td style="border-width:0px;">
+    	                    </td>
+        	            </tr>
+            	    	<tr>
+                	    	<td style="border-width:0px">
+                    		</td>
+                    		<td style="border-width:0px">
+                        		<input type="submit" id="btn_save" value="Save" />
+	                    	</td>
+    	            	</tr>
+           			</table>
+                </td>
+            </tr>
+        </table>
+    	<% end %>
+	</div>
+</div>
+

@@ -1,2 +1,164 @@
-<h1>Template#edit</h1>
-<p>Find me in app/views/template/edit.html.erb</p>
+<div id="nave" >
+	<ul id="menu">
+		<li class="sub">
+			<a href="#">View Video Resume</a>
+		</li>
+		<li class="sub">
+			<a href="<%= templates_path %>">Openings</a>
+        </li>
+		<li class="sub">
+			<a href="#">Options</a>
+        </li>
+		<li class="sub">
+			<a href="#">Decision</a>
+		</li>
+	</ul>
+	<div id="opening">
+		<%= form_tag( { :controller => :templates, :action => :update }, { :method => :put } ) do |f| %>
+    	<table class="table" style="border-width:0px;" width="100%"  >
+        	<tr>
+            	<font size="+1">
+            		<th id="tableHeading" style="border-width:0px;">
+            			Edit <%=@templates.TemplateName %>
+            		</th>
+            	</font>
+            </tr>
+        	<tr>
+            	<td style="border-width:0px;">
+            		<table id="Categories" width="385" border="0px;" >
+            			<% @sections.each_with_index do |s,i| %>
+            			<tr>
+				      		<td ><input type='checkbox' name='Checks[]'/>
+      						</td>
+ 				    		<td>
+								<input type='hidden' name='hidden[]' value='<%= s.SectionName%>'/><%= s.SectionName %>
+            				</td>
+            			</tr>
+            			<% end %>
+            			<input type='hidden' name='idTemp' value='<%= @templates.id%>'/>
+                        <tr>
+               			    <td width="97" style="border-width:0px;">
+                        		<a href="javascript:ModalPopupsCreateCategory()">New Category</a>
+                    		</td>
+                    		<td width="278" style="border-width:0px;">
+                        		<a href="javascript:deleteRow()">Delete Category</a>
+                    		</td>               
+                		</tr>
+                		<tr>
+                    		<td style="border-width:0px">
+                    		</td>
+                    		<td style="border-width:0px">
+                        		<input type="submit" id="btn_save" value="Save" />
+                    		</td>
+                		</tr>
+           			</table>
+	           </td>
+    	    </tr>
+    	</table>
+    	<% end %>
+	</div>
+</div>
+
+
+<script type="text/javascript" language="javascript">
+    function ModalPopupsCreateCategory() {
+        ModalPopups.Custom("CreateCateg",
+                "Add Category",
+                "<div style='padding: 20px;'>" +
+                "<table>" +
+                "<tr><td>Category Name</td><td><input type='text' id='inputCustom1Name' style='width:100px;'/></td></tr>" +
+                "</table>" +
+                "</div>",
+                {
+                    width: 350,
+                    height: 150,
+                    buttons: "ok,cancel",
+                    okButtonText: "Add",
+                    cancelButtonText: "Cancel",
+                    onOk: "ModalPopupsCustom1Save()",
+                    onCancel: "ModalPopupsCustom1Cancel()"
+                }
+            );
+
+        ModalPopups.GetCustomControl("inputCustom1Name").focus();
+    }
+    function ModalPopupsCustom1Save() {
+        var custom1Name = ModalPopups.GetCustomControl("inputCustom1Name");
+
+        if (custom1Name.value == "") {
+            alert("Please submit proper Section Name");
+            custom1Name.focus();
+        }
+        else {
+            
+        addElement(custom1Name.value);
+            ModalPopups.Close("CreateCateg");
+        }
+    }
+
+    function addElement(title) {
+
+		var check=true;
+        var table = document.getElementById("Categories");
+        var rowCounting = table.rows.length;
+		var Firstcapital=title.charAt(0).toUpperCase() + title.slice(1);
+        for(var i=0; i<rowCounting; i++) {
+	        if(table.rows[i].innerHTML.indexOf(title) !== -1 || table.rows[i].innerHTML.indexOf(Firstcapital) !== -1)
+			check=false;
+        }
+		if(check==true)
+		{ 
+	    	var section = document.getElementById("Categories");
+	        var rowCount=section.rows.length;
+			var row = section.insertRow(rowCount-2);
+        	var cell0 = row.insertCell(0);
+	        var element0 = document.createElement("input");
+    	    element0.type = "checkbox";
+			element0.name="Checks[]";
+	        cell0.appendChild(element0);
+
+    	    var cell1 = row.insertCell(1);
+			var element2=document.createElement("input");
+			element2.type="hidden";
+			element2.name="hidden[]";
+			element2.value=title;
+			cell1.appendChild(element2);
+        	var element1 = document.createElement("label");
+	        element1.innerHTML = title;
+        	cell1.appendChild(element1);
+		}
+		else
+		{
+			alert("Category Already exsis");	
+		}
+    }
+    
+    function ModalPopupsCustom1Cancel() {
+
+        ModalPopups.Cancel("CreateCateg");
+    }
+</script>
+
+<script type="text/javascript">
+	function deleteRow() {
+	    try {
+            var table = document.getElementById("Categories");
+            var rowCount = table.rows.length;
+ 
+            for(var i=0; i<rowCount; i++) {
+                var row = table.rows[i];
+                var chkbox = row.cells[0].childNodes[0];
+                alert(row.cells[0].innerHTML);
+                if(null != chkbox && true == chkbox.checked) {
+                	alert("SAK");
+                    table.deleteRow(i);
+                    rowCount--;
+                    i--;
+                }
+            }
+        }
+        catch(e) {
+            alert(e);
+        }
+	} 
+</script>

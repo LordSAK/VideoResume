@@ -1,0 +1,51 @@
+<div id="nave">
+  <ul id="menu">
+    <li class="sub"><a href="#">View Video Resume</a>
+    </li>
+    <li class="sub"><a href="<%= templates_path %>">Openings</a>
+    </li>
+    <li class="sub"><a href="recruiteroption.php">Options</a>
+    </li>
+    <li class="sub"><a href="recruiterdecision.html">Decision</a>
+    </li>
+  </ul>
+  <div id="opening">
+    <%= form_for :opening, :url => { :method => :post, :action => :create } do |f| %>
+      <table class="table"  width="100%"  >
+        <tr>
+          <font size="+1"><th>Create Opening</th></font>
+        </tr>
+        <tr>
+          <td>
+            <table width="700"  border="0px">
+              <tr><td>Name</td><td><input type="text" name='name' /></td></tr>
+              <tr><td>Location</td><td><input type="text" name='location'/></td></tr>
+              <tr><td>Description</td><td><input type="text" name='description'/></td></tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <table border="0px">
+              <tr>
+                <td>
+                  <b>Pick Template from the following</b>
+                </td>
+              </tr>
+              <% @templates.each do |t| %>
+                <tr>
+                  <td style='border-width:0px'>
+                    <input type='radio' name='templateSelection' value='<%= t.id %>'><%= t.TemplateName %>
+      			     </td>
+              </tr>
+              <% end %>
+            </table>
+            <div align="left">
+             	<input type="submit" value="Publish" name="Save"/>
+            </div>
+          </td>
+        </tr>
+      </table>
+    <% end %>
+  </div>
+</div>

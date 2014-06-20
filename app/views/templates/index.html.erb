@@ -1,2 +1,69 @@
-<h1>Template#index</h1>
-<p>Find me in app/views/template/index.html.erb</p>
+<div id="nave" >
+
+	<ul id="menu">
+		<li class="sub"><a href="#">View Video Resume</a>
+		</li>
+		<li class="sub"><a href="<%= templates_path %>">Openings</a>
+        </li>
+		<li class="sub"><a href="#">Options</a>
+        </li>
+		<li class="sub"><a href="#">Decision</a>
+		</li>
+	</ul>
+	<div id="opening">
+		<table class="table" style="border-width:2px;" width="100%"  >
+    		<tr>
+    			<th style="border-width:0px;">
+    				<font size="+1">Openings</font>
+    			</th>
+    			<th style="border-width:0px;">
+    				<font size="+1">Templates</font>
+    			</th>
+    		</tr>
+    		<tr>
+    			<td style="border-width:0px;">
+            <table width="300" border="2px;" >
+              <% @openings.each do |o| %>
+      					<tr>
+               		<td width='150' style='border-width:0px;'>
+               			<b><%= o.OpeningTitle %></b>
+               		</td>
+				  		    <td style='border-width:0px;'>
+                		<a href='<%= edit_opening_path(o.id) %>'>Edit Opening</a>
+                	</td>
+             	  </tr>
+              <% end %>
+         			<tr>
+         				<td style="border-width:0px;">
+           				<a href="<%= new_opening_path %>">Create New Opening</a>
+         				</td>
+         				<td style="border-width:0px;">
+         				</td>
+         			</tr>
+       			</table>
+       		</td>
+       		<td style="border-width:0px;">
+       			<table width="300" border="2px;" >
+           		<% @templates.each do |t| %>
+			         	<tr>
+             	  	<td width='150' style='border-width:0px;'>
+    								<b><%=t.TemplateName %></b>
+            			</td>
+              		<td style='border-width:0px;'>
+              			<a href='<%= edit_template_path(t.id) %>'>Edit Template</a>
+              		</td>
+             		</tr>
+             	<% end %>
+				      <tr>
+			         	<td style="border-width:0px;">
+            			<a href="<%= new_template_path %>">Create New Template</a>
+              	</td>
+              	<td style="border-width:0px;">
+               				</td>
+             			</tr>
+           			</table>
+           		</td>
+    		</tr>
+		</table>
+	</div>
+</div>

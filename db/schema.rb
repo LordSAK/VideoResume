@@ -11,11 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140619091725) do
+ActiveRecord::Schema.define(version: 20140620102035) do
 
   create_table "opening_templates", force: true do |t|
     t.string   "TemplateName"
     t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "openings", force: true do |t|
+    t.string   "OpeningTitle"
+    t.string   "OpeningLocation"
+    t.string   "OpeningDescription"
+    t.integer  "template_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
