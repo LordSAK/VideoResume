@@ -4,6 +4,10 @@
 		<li class="current"><a href="index.php"><span>Home</span></a></li>
 		<li><a href="#"><span>About</span></a></li>
 		<li><a href="#"><span>Contact Us</span></a></li>
+		<% if !current_user.nil? %>
+			<li><a href="<%= root_path %>" data-method="delete" rel="nofollow"><span>Log out</span></a></li>
+			
+		<% end %>
 	 </ul>
 </div>
   		

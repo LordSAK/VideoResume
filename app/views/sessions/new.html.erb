@@ -1,0 +1,122 @@
+<style type="text/css">
+  
+div.row
+{
+    clear: both;
+
+    padding-top: 5px;
+
+    }
+
+
+  div.row span.label
+ {
+
+    float: left;
+
+    width:80px;
+
+    text-align: left;
+
+    }
+
+    div.row span.labels
+
+    {
+
+        text-align:left;
+
+    }
+
+
+  div.row span.formw
+ {
+
+    float: left;
+
+    text-align: left;
+
+    }
+ 
+    div.row span.formws
+          {
+    
+          float:left;
+
+    text-align: left;
+
+    }
+ 
+    div.row span.rb 
+          {
+
+    float: left;
+
+    text-align: left;
+
+    margin-right:5px;
+
+    }
+
+          #menu
+
+          {
+
+          width: 196px;
+
+          }
+
+          #opening
+
+          {
+
+          width: 721px;
+
+          }
+</style>
+<% provide(:title, "Sign in") %>
+<h2 style="margin-left:30px;">Enter your login and password</h2>
+<%= form_for(:session, url: sessions_path) do |f| %>
+<table style="margin-left:30px;" border="1">
+      <tr>
+          <td style="font-size:15px">
+              Email:
+          </td>
+          <td> 
+              <%= f.text_field :email, :style => "height:15px" %>
+          </td>
+      </tr>
+      <tr>
+          <td style="font-size:15px">
+              Password:
+          </td>
+          <td>
+              <%= f.password_field :password, :style => "height:15px" %>
+          </td>
+      </tr>
+      <tr>
+          <td style="font-size:13px">
+            <label for="type"></label>
+            <%= radio_button_tag :type, 'Candidate' %> Candidate
+          </td>
+          <td style="font-size:13px">
+            <%= radio_button_tag :type, 'Consultant' %> Consultant
+            <%= radio_button_tag :type, 'Manager' %> Manager
+          </td>
+      </tr>
+      <tr>
+          <td>
+
+          </td>
+          <td style="text-align:left;">
+            <%= f.submit "Login", class: "btn btn-large btn-primary", :style => "width:50px; height:20px; font-size:10px;" %>
+          </td>
+      </tr>
+</table>
+<p style="font-size:13px; margin-left:30px;">Not member yet? Click <%= link_to "here!", signup_path %> to register.</p>
+<div id="imac">
+      <div id="slider" class="nivoSlider"> <img src="images/slide-01.jpg" alt="" /> <img src="images/slide-02.jpg" alt="" /> <img src="images/slide-03.jpg" alt="" />
+      </div>
+</div>
+
+<% end %>

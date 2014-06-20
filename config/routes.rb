@@ -3,15 +3,16 @@ Rails.application.routes.draw do
   get "openings/edit"
   get "users/new"
   resources :users
+  resources :sessions, only: [:new, :create, :destroy]
   resources :templates
   resources :openings
 
-  match '/signupcandidate', to: 'users#_candidate', via: 'get'
-  match '/signupcons', to: 'users#_consultingCompany', via: 'get'
-  match '/signupmngr', to: 'users#_hiringManager', via: 'get'
-
-  match '/signup',  to: 'users#new', via: 'get'
-  # The priority is based upon order of creation: first created -> highest priority.
+  root "sessions#new"
+  match '/signup',     to: 'users#new',           via: 'get'
+  match '/signin',     to: 'sessions#new',        via: 'get'
+  match '/signout',    to: 'sessions#destroy',    via: 'delete'
+  
+# The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"

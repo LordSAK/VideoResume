@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140620102035) do
+ActiveRecord::Schema.define(version: 20140620114433) do
 
   create_table "opening_templates", force: true do |t|
     t.string   "TemplateName"
@@ -60,8 +60,10 @@ ActiveRecord::Schema.define(version: 20140620102035) do
     t.string   "address"
     t.string   "phone"
     t.string   "country"
+    t.string   "remember_token"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["remember_token"], name: "index_users_on_remember_token"
 
 end
