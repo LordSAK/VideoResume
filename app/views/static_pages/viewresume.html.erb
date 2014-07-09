@@ -39,7 +39,7 @@
             <% @sections=ResumeSection.joins('inner join "resumes" on "resumes"."id"="resume_sections"."Resume_id"').where('"user_id" =?',u.id) %>
             <% @sections.each do |s| %>
              <% sectionName=Section.joins('inner join "resume_sections" on "resume_sections"."section_id"="sections"."id"').where('"sections"."id"=?', s.section_id) %>
-            -<a href="#" title="<%= s.ResumePath%>" id="click"><%=sectionName.first.SectionName %></a></li>
+            -<a href="#" title="<%= s.ResumePath%>" id="click"><%=sectionName.first.SectionName %></a>
             <br/>
             <% end %>
           <% end %>
