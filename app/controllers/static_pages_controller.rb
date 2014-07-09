@@ -9,7 +9,7 @@ class StaticPagesController < ApplicationController
   end
 
   def viewresume
-  	@openings = Opening.joins("inner join resumes on openings.id=resumes.opening_id").where("resumes.user_id=?",current_user.id).select("openings.id,openingtitle")
+  	@openings = Opening.joins("inner join resumes on openings.id=resumes.opening_id").where("resumes.user_id=?",current_user.id)
     if !params[:val].blank?
       @users=User.joins("inner join resumes on resumes.user_id=users.id").where("opening_id=?",params[:val])
     end
