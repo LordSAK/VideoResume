@@ -1,6 +1,6 @@
 class RecruitersController < ApplicationController
     def recruiterviewresume
-        @openings = Opening.joins("inner join resumes on openings.id=resumes.opening_id").select("openings.id,openingtitle")
+        @openings = Opening.joins("inner join resumes on openings.id=resumes.opening_id")
         if !params[:val].blank?
             @users=User.joins("inner join resumes on resumes.user_id=users.id").where("opening_id=?",params[:val])
         end
