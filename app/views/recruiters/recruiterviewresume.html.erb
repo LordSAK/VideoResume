@@ -19,15 +19,19 @@
         function change_url(val) {
             window.location="/recruiterviewresumes?val="+val;
         }
-        $( document ).ready(function() {
-            $( "#click" ).click(function() {
-                var vid=document.getElementById("water_msg_video");
-                vid.sendEvent('LOAD', this.title);
-                var str = this.title;
-                var res = str.split("user")[1];
-                document.getElementById("candidate_id").value = res;
-            });
-        });
+        
+        function myFunction(a) {
+            alert("SAK");
+            var vid=document.getElementById("water_msg_video");
+            vid.sendEvent('LOAD', a.title);
+            var str = a.title;
+            var res = str.split("user")[1];
+
+            var fina=res.split(".")[0];
+            alert(fina);
+            document.getElementById("candidate_id").value = fina;
+        }
+        
     </script>
 <%= form_for(:recruiterviewresume,:html => {:id => "recruiterviewresume"}) do |f| %>
     <table class="table" width="100%">
@@ -50,7 +54,7 @@
                         <% @sections=ResumeSection.joins('inner join "resumes" on "resumes"."id"="resume_sections"."Resume_id"').where('"user_id" =?',u.id) %>
                         <% @sections.each do |s| %>
                             <% sectionName=Section.joins('inner join "resume_sections" on "resume_sections"."section_id"="sections"."id"').where('"sections"."id"=?', s.section_id) %>
-                            -<a href="#" title="<%= s.ResumePath%>" id="click"><%=sectionName.first.SectionName %></a></li>
+                            -<a title="<%= s.ResumePath%>" onclick="myFunction(this)"><%=sectionName.first.SectionName %></a></li>
                             <br/>
                         <% end %>
                     <% end %>
