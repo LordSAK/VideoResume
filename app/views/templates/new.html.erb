@@ -1,10 +1,15 @@
 <div id="nave" >
-	<ul id="menu">
-		<li class="sub"><a href="#">View Video Resume</a></li>
-		<li class="sub"><a href="<%= templates_path %>">Openings</a></li>
-		<li class="sub"><a href="#">Options</a></li>
-		<li class="sub"><a href="#">Decision</a></li>
-	</ul>
+   <ul id="menu">
+    <li class="sub">
+      <a href="<%= recruiterviewresumes_path %>">View Video Resume</a>
+    </li>
+    <li class="sub">
+      <a href="<%= templates_path %>">Openings</a>
+        </li>
+    <li class="sub">
+      <a href="/recruiterdecisions">Decision</a>
+    </li>
+  </ul>
 	<div id="opening">
 		<%= form_for :template, :url => { :method => :post, :action => :create } do |f| %>
 			<table class="table" style="border-width:2px;font-size:medium" width="100%"  >

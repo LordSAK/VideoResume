@@ -1,0 +1,53 @@
+<div id="nave" >
+  <ul id="menu" style="padding: 10px;margin: 5px">
+    <li class="sub"><a href="opening">Openings</a></li>
+    <li class="sub"><a href="viewresumes">View Resume</a></li>
+  </ul>
+</div>
+<div style="font-size:small" id="opening1">
+  <%= select_tag :select_opening,options_from_collection_for_select(@openings,"id","OpeningTitle",params[:val]), :include_blank => true, :id => "DDL_Openings",:style => "margin-top: 10px",:onchange=> "change_url(this.value);" %>
+
+
+  <script type="text/javascript">
+    function change_url(val) {
+      window.location="/viewresumes?val="+val;
+    }
+    $( document ).ready(function() {
+      $( "#click" ).click(function() {
+        var vid=document.getElementById("water_msg_video");
+        vid.sendEvent('LOAD', this.title);
+      });
+    });
+  </script>
+
+
+
+  <table class="table" border>
+    <tr>
+      <th  width="25%">Candidate</th>
+      <th  width="80%">Video</th>
+    </tr>
+    <tr> 
+      <td style="vertical-align:top;">
+        <% if !@users.nil? %>
+          <% @users.each do |u| %>
+            <% name=u.first_name %>
+            <% if !u.last_name.blank? %>
+              <% name+= " " +u.last_name %>
+            <% end %> 
+            <%= name %><br/>
+            <% @sections=ResumeSection.joins("inner join resumes on resumes.id=resume_sections.Resume_id").where("user_id =?",u.id) %>
+            <% @sections.each do |s| %>
+             <% sectionName=Section.joins("inner join resume_sections on resume_sections.section_id=sections.id").where("sections.id=?", s.section_id) %>
+            -<a href="#" title="<%= s.ResumePath%>" id="click"><%=sectionName.first.SectionName %></a></li>
+            <br/>
+            <% end %>
+          <% end %>
+        <% end %>
+      </td>
+      <td>
+        <%= video_player({:file => "/video/water_msg.flv"}, {:width => 470, :height => 400, :id => "water_msg_video"}) %>
+      </td>
+    </tr>
+    </table>
+</div>

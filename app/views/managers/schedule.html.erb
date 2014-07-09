@@ -1,0 +1,115 @@
+<div id="nave" >
+	<ul id="menu" style="padding: 10px;margin: 5px">
+		<li class="sub"><a href="openings.php">Openings</a>
+		</li>
+		<li class="sub"><a href="viewresume.php">View Resume</a>
+		</li>
+	</ul>
+</div>
+<div id="opening2" style="background:#C3CEE0;padding: 10px;margin: 5px auto;">
+<%= form_for(:Schedule,:html => {:id => "Schedule"}) do |f| %>
+	<table class="table" width="100%">
+        <th><font size="+1">Interview Schedule</font></th>
+        <tr>
+             <td><%= @mail_to %></td>
+        </tr>
+    </table>
+    <table>
+        <tr>
+            <td>
+                <label style="font-size:small; font-weight:bold;">Send Appointments to:</label>
+            </td>
+            <td>
+            	<%= f.text_field :mail_to_address, :style => "font-size:small;" %>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label style="font-size:small; font-weight:bold;">Start Time:</label>
+            </td>
+            <td>
+                <%= f.select :startTime, options_for_select([
+              " ",
+              "06:00",
+              "06:30",
+              "07:00",
+              "07:30",
+              "08:00",
+              "08:30",
+              "09:00",
+              "09:30",
+              "10:00",
+              "10:30",
+              "11:00",
+              "11:30",
+              "12:00",
+              "12:30",
+              "13:00",
+              "13:30",
+              "14:00",
+              "14:30",
+              "15:00",
+              "15:30",
+              "16:00",
+              "16:30",
+              "17:00",
+              "17:30",
+              "18:00",
+              "18:30"
+              ]),{},{:style => "width:50px;font-size:small"} %>
+            </td>
+        </tr>
+        <tr>
+            <td>
+				<label style="font-size:small; font-weight:bold;">End Time:</label>
+            </td>
+            <td>
+            <%= f.select :endTime, options_for_select([
+              " ",
+              "06:00",
+              "06:30",
+              "07:00",
+              "07:30",
+              "08:00",
+              "08:30",
+              "09:00",
+              "09:30",
+              "10:00",
+              "10:30",
+              "11:00",
+              "11:30",
+              "12:00",
+              "12:30",
+              "13:00",
+              "13:30",
+              "14:00",
+              "14:30",
+              "15:00",
+              "15:30",
+              "16:00",
+              "16:30",
+              "17:00",
+              "17:30",
+              "18:00",
+              "18:30"
+              ]),{},{:style => "width:50px;font-size:small"} %>
+            </td>
+        </tr>
+        <tr>
+            <td style="vertical-align:top;">
+				<label style="font-size:small; font-weight:bold;">Message:</label>
+            </td>
+            <td>
+                <%= f.text_area :Comments, :style => "font-size:small; width:300px; height:100px;" %>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            </td>
+            <td>
+                <%= f.submit "Send", { :style => "font-size:small" } %>
+            </td>
+        </tr>
+    </table>
+<% end %>
+</div>

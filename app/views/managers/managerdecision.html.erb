@@ -1,0 +1,66 @@
+<div id="nave">
+  <ul id="menu">
+    <li class="sub"><a href="managerviewresumes">View Video Resume</a>
+    </li>
+    <li class="sub"><a href="managerdecisions">Decision</a>
+    </li>
+  </ul>
+</div>
+<div id="openingmngrdec">
+  <% @selection_candidate.each do |s| %>
+  <% @candidate_details = User.where( :id => s.CandidateID ) %>
+  <% @opening_details = Opening.where( :id => s.OpeningsID ) %>
+  <% @candidate_details.each do |can_details| %>
+  		<table class="table" width="100%">
+			<th><font size="+1">Decision</font></th>
+			<tr height="40px">
+				<td style='border-width:0px; font-size:small;color:#06C; vertical-align:middle; margin-left:40px;'><a href='javascript:ModalPopupsSelected()'><%= can_details.first_name + " " + can_details.last_name %></a>
+				</td>
+			</tr>
+			</table>
+</div>
+<% @opening_details.each do |open_details| %>
+<script type="text/javascript" language="javascript">
+    function ModalPopupsSelected() {
+        ModalPopups.Custom("CreateTemp",
+                "Candidate",
+                "<div style='padding: 20px;'>" +
+                "<table>" +
+                "<tr><td >Name: </td><td style='border-width:0px;'><%= can_details.first_name + " " + can_details.last_name %></td></tr><tr><td >Email: </td><td style='border-width:0px;'><%= can_details.email %></td></tr><tr><td >Phone: </td><td style='border-width:0px;'><%= can_details.phone %></td></tr><tr><td >Address: </td><td style='border-width:0px;'><%= can_details.address %></td></tr><tr><td >Applied for: </td><td style='border-width:0px;'><%= open_details.OpeningTitle %></td></tr><tr><td >Consultant: </td><td style='border-width:0px;'></td></tr><table><tr><td >Technical Skills: </td><td style='border-width:0px;'>Presentation Skills</td><td>Management Skills</td></tr><tr><td></td><td></td><td></td></tr><tr><td><%= s.Con_Tech_Skills %></td><td><%= s.Con_Pre_Skills %></td><td><%= s.Con_Mng_Skills %></td></tr></table><tr><td >Manager: </td><td style='border-width:0px;'></td></tr><table><tr><td >Technical Skills: </td><td style='border-width:0px;'>Presentation Skills</td><td>Management Skills</td></tr><tr><td></td><td></td><td></td></tr><tr><td><%= s.Mngr_Tech_Skills %></td><td><%= s.Mngr_Pre_Skills %></td><td><%= s.Mngr_Mng_Skills %></td></tr></table>" +
+                "</table>" +
+                "</div>",
+                {
+                    width: 300,
+                    height: 150,
+                    buttons: "ok,cancel",
+                    okButtonText: "OK",
+                    cancelButtonText: "Cancel",
+                    onOk: "ModalPopupsCustom1Save()",
+                    onCancel: "ModalPopupsCustom1Cancel()"
+                }
+            );
+
+        ModalPopups.GetCustomControl("inputCustom1Name").focus();
+    }
+    function ModalPopupsCustom1Save() {
+        //var custom1Name = ModalPopups.GetCustomControl("inputCustom1Name");
+
+     //   if (custom1Name.value == "") {
+       //     alert("Please submit proper Section Name");
+         //   custom1Name.focus();
+       // }
+        //else {
+          //  window.location = "create_template.php?id=" + custom1Name.value;
+         //   addElement(custom1Name.value);
+           // ModalPopups.Close("CreateTemp");
+       // }
+	   ModalPopups.Cancel("CreateTemp");
+    }
+    function ModalPopupsCustom1Cancel() {
+
+        ModalPopups.Cancel("CreateTemp");
+    }
+</script>
+<% end %>
+<% end %>
+ <% end %>

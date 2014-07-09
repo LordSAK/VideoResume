@@ -1,0 +1,362 @@
+
+-- phpMyAdmin SQL Dump
+-- version 2.11.4
+-- http://www.phpmyadmin.net
+--
+-- Host: localhost
+-- Generation Time: Jun 10, 2014 at 05:37 AM
+-- Server version: 5.1.57
+-- PHP Version: 5.2.17
+
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+
+--
+-- Database: `a2130923_VidRes`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Candidate`
+--
+
+CREATE TABLE `Candidate` (
+  `idCandidate` int(11) NOT NULL AUTO_INCREMENT,
+  `CandidateName` varchar(45) COLLATE latin1_general_ci DEFAULT NULL,
+  `CandidateAddres` varchar(100) COLLATE latin1_general_ci DEFAULT NULL,
+  `CandidateEmail` varchar(45) COLLATE latin1_general_ci NOT NULL,
+  `CandidatePhone` varchar(45) COLLATE latin1_general_ci DEFAULT NULL,
+  `CandidateResume` varchar(45) COLLATE latin1_general_ci DEFAULT NULL,
+  `CandidatePassword` varchar(45) COLLATE latin1_general_ci NOT NULL,
+  `CandidateCountry` varchar(60) COLLATE latin1_general_ci DEFAULT NULL,
+  PRIMARY KEY (`idCandidate`),
+  UNIQUE KEY `CandidateEmail` (`CandidateEmail`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=18 ;
+
+--
+-- Dumping data for table `Candidate`
+--
+
+INSERT INTO `Candidate` VALUES(1, 'Fan Wang', 'Wayne St Jersey City, NJ', 'fwang218@gmail.com', '541-515-0433', 'Link to resume', '123456', 'USA');
+INSERT INTO `Candidate` VALUES(2, 'John Doe', '5th Ave, New York', 'john.doe@gmail.com', '111-111-1111', 'Link to resume', '123456', 'USA');
+INSERT INTO `Candidate` VALUES(5, 'Test', '', 'abc@xyz.com', '', '', '', 'Bolivia');
+INSERT INTO `Candidate` VALUES(4, 'Charles Philip', '', 'charles.philip@hotmail.com', '', '', '123456', '');
+INSERT INTO `Candidate` VALUES(6, 'rachel', '', 'rachel@rachel.com', '', '', '123456', 'United States');
+INSERT INTO `Candidate` VALUES(7, 'arsalan', '', 'arsalanjawed619@yahoo.com', '', '', '123456', 'Pakistan');
+INSERT INTO `Candidate` VALUES(8, 'kevin', '', 'kevin000@yahoo.com', '', '', '123456', 'United States');
+INSERT INTO `Candidate` VALUES(9, '', '', '', '', '', '', '');
+INSERT INTO `Candidate` VALUES(10, 'john', '', 'john000@yahoo.com', '', '', '123456', 'United States');
+INSERT INTO `Candidate` VALUES(11, 'Ferry Corsten', '', 'ferry@corsten.com', '', '', '123456', 'United States');
+INSERT INTO `Candidate` VALUES(12, 'Emma Hewwit', '', 'emma@hewwit.com', '', '', '123456', 'United Kingdom');
+INSERT INTO `Candidate` VALUES(13, 'Paul Dyk', '', 'paul@dyk.com', '', '', '123456', 'United States');
+INSERT INTO `Candidate` VALUES(14, 'David McKillop', '', 'david@mc.com', '', '', '123456', 'United Kingdom');
+INSERT INTO `Candidate` VALUES(15, 'Dustin Thompson', '', 'dustin@thompson.com', '', '', '123456', 'Netherlands');
+INSERT INTO `Candidate` VALUES(16, 'benkim', '', 'ben_kim@fip.com', '', '', '123456', 'Pakistan');
+INSERT INTO `Candidate` VALUES(17, 'Lucas Chandler', '', 'lucas@chandler.com', '', '', '123456', 'United States');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Consultant`
+--
+
+CREATE TABLE `Consultant` (
+  `idConsultant` int(11) NOT NULL AUTO_INCREMENT,
+  `ConsultantName` varchar(45) COLLATE latin1_general_ci DEFAULT NULL,
+  `ConsultantCompany` varchar(45) COLLATE latin1_general_ci DEFAULT NULL,
+  `ConsultantEmail` varchar(45) COLLATE latin1_general_ci NOT NULL,
+  `ConsultantPhone` varchar(45) COLLATE latin1_general_ci DEFAULT NULL,
+  `ConsultantPassword` varchar(45) COLLATE latin1_general_ci NOT NULL,
+  PRIMARY KEY (`idConsultant`),
+  UNIQUE KEY `ConsultantEmail` (`ConsultantEmail`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=4 ;
+
+--
+-- Dumping data for table `Consultant`
+--
+
+INSERT INTO `Consultant` VALUES(1, 'Jane', 'Logisitic Solution', 'jane@gmail.com', '908-123-4567', '123456');
+INSERT INTO `Consultant` VALUES(2, 'John Doe', 'Musewerx', 'info@vidres.com', '111-111-1111', '123456');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Habit`
+--
+
+CREATE TABLE `Habit` (
+  `idHabit` int(11) NOT NULL AUTO_INCREMENT,
+  `idConsultant` int(11) DEFAULT NULL,
+  `Swatch1` varchar(80) COLLATE latin1_general_ci DEFAULT NULL,
+  `Swatch2` varchar(80) COLLATE latin1_general_ci DEFAULT NULL,
+  `Swatch3` varchar(80) COLLATE latin1_general_ci DEFAULT NULL,
+  `Swatch4` varchar(80) COLLATE latin1_general_ci DEFAULT NULL,
+  `Swatch5` varchar(80) COLLATE latin1_general_ci DEFAULT NULL,
+  `Swatch6` varchar(80) COLLATE latin1_general_ci DEFAULT NULL,
+  `Swatch7` varchar(80) COLLATE latin1_general_ci DEFAULT NULL,
+  `Swatch8` varchar(80) COLLATE latin1_general_ci DEFAULT NULL,
+  `Swatch9` varchar(80) COLLATE latin1_general_ci DEFAULT NULL,
+  `Swatch10` varchar(45) COLLATE latin1_general_ci DEFAULT NULL,
+  `Sorder1` int(11) DEFAULT '0',
+  `Sorder2` int(11) DEFAULT '0',
+  `Sorder3` int(11) DEFAULT '0',
+  `Sorder4` int(11) DEFAULT '0',
+  `Sorder5` int(11) DEFAULT '0',
+  `Sorder6` int(11) DEFAULT '0',
+  `Sorder7` int(11) DEFAULT '0',
+  `Sorder8` int(11) DEFAULT '0',
+  `Sorder9` int(11) DEFAULT '0',
+  `Sorder10` int(11) DEFAULT '0',
+  `Habitcol` varchar(45) COLLATE latin1_general_ci DEFAULT '0',
+  PRIMARY KEY (`idHabit`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=4 ;
+
+--
+-- Dumping data for table `Habit`
+--
+
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Manager`
+--
+
+CREATE TABLE `Manager` (
+  `idManager` int(11) NOT NULL AUTO_INCREMENT,
+  `ManagerName` varchar(100) COLLATE latin1_general_ci DEFAULT NULL,
+  `ManagerEmail` varchar(100) COLLATE latin1_general_ci NOT NULL,
+  `ManagerPassword` varchar(100) COLLATE latin1_general_ci NOT NULL,
+  `ManagerPhone` decimal(10,0) DEFAULT NULL,
+  PRIMARY KEY (`idManager`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `Manager`
+--
+
+INSERT INTO `Manager` VALUES(1, 'chris felly', 'chris_felly@ryu.com', '123456', 1234565);
+INSERT INTO `Manager` VALUES(2, 'lance', 'lance@storm.com', '123456', 123456);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ManagerHabit`
+--
+
+CREATE TABLE `ManagerHabit` (
+  `idManagerHabit` int(11) NOT NULL AUTO_INCREMENT,
+  `idCManager` varchar(100) COLLATE latin1_general_ci NOT NULL,
+  `Swatch1` varchar(50) COLLATE latin1_general_ci DEFAULT NULL,
+  `Swatch2` varchar(50) COLLATE latin1_general_ci DEFAULT NULL,
+  `Swatch3` varchar(50) COLLATE latin1_general_ci DEFAULT NULL,
+  `Swatch4` varchar(50) COLLATE latin1_general_ci DEFAULT NULL,
+  `Swatch5` varchar(50) COLLATE latin1_general_ci DEFAULT NULL,
+  `Swatch6` varchar(50) COLLATE latin1_general_ci NOT NULL,
+  `Swatch7` varchar(50) COLLATE latin1_general_ci DEFAULT NULL,
+  `Swatch8` varchar(50) COLLATE latin1_general_ci DEFAULT NULL,
+  `Swatch9` varchar(50) COLLATE latin1_general_ci DEFAULT NULL,
+  `Swatch10` varchar(50) COLLATE latin1_general_ci DEFAULT NULL,
+  `Sorder1` int(11) DEFAULT NULL,
+  `Sorder2` varchar(11) COLLATE latin1_general_ci DEFAULT NULL,
+  `Sorder3` varchar(11) COLLATE latin1_general_ci DEFAULT NULL,
+  `Sorder4` varchar(11) COLLATE latin1_general_ci DEFAULT NULL,
+  `Sorder5` varchar(11) COLLATE latin1_general_ci DEFAULT NULL,
+  `Sorder6` varchar(11) COLLATE latin1_general_ci DEFAULT NULL,
+  `Sorder7` varchar(11) COLLATE latin1_general_ci DEFAULT NULL,
+  `Sorder8` varchar(11) COLLATE latin1_general_ci DEFAULT NULL,
+  `Sorder9` varchar(11) COLLATE latin1_general_ci DEFAULT NULL,
+  `Sorder10` varchar(11) COLLATE latin1_general_ci DEFAULT NULL,
+  `Habitcol` varchar(45) COLLATE latin1_general_ci DEFAULT NULL,
+  PRIMARY KEY (`idManagerHabit`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `ManagerHabit`
+--
+
+INSERT INTO `ManagerHabit` VALUES(1, '1', 'Experience', 'Self Introduction', NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, 0, '', '0', '0', '0', '0', '0', '0', '0', '0', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Opening`
+--
+
+CREATE TABLE `Opening` (
+  `idOpening` int(11) NOT NULL AUTO_INCREMENT,
+  `idTemplates` int(11) DEFAULT NULL,
+  `OpeningName` varchar(45) COLLATE latin1_general_ci DEFAULT NULL,
+  `OpeningLocation` varchar(45) COLLATE latin1_general_ci DEFAULT NULL,
+  `OpeningDescription` varchar(1000) COLLATE latin1_general_ci DEFAULT NULL,
+  `Section1Description` varchar(200) COLLATE latin1_general_ci DEFAULT NULL,
+  `Section2Description` varchar(200) COLLATE latin1_general_ci DEFAULT NULL,
+  `Section3Description` varchar(200) COLLATE latin1_general_ci DEFAULT NULL,
+  `Section4Description` varchar(200) COLLATE latin1_general_ci DEFAULT NULL,
+  `Section5Description` varchar(200) COLLATE latin1_general_ci DEFAULT NULL,
+  `Section6Description` varchar(200) COLLATE latin1_general_ci DEFAULT NULL,
+  `Section7Description` varchar(200) COLLATE latin1_general_ci DEFAULT NULL,
+  `Section8Description` varchar(200) COLLATE latin1_general_ci DEFAULT NULL,
+  `Section9Description` varchar(200) COLLATE latin1_general_ci DEFAULT NULL,
+  `Section10Description` varchar(200) COLLATE latin1_general_ci DEFAULT NULL,
+  `Section1Length` varchar(45) COLLATE latin1_general_ci DEFAULT NULL,
+  `Section2Length` varchar(45) COLLATE latin1_general_ci DEFAULT NULL,
+  `Section3Length` varchar(45) COLLATE latin1_general_ci DEFAULT NULL,
+  `Section4Length` varchar(45) COLLATE latin1_general_ci DEFAULT NULL,
+  `Section5Length` varchar(45) COLLATE latin1_general_ci DEFAULT NULL,
+  `Section6Length` varchar(45) COLLATE latin1_general_ci DEFAULT NULL,
+  `Section7Length` varchar(45) COLLATE latin1_general_ci DEFAULT NULL,
+  `Section8Length` varchar(45) COLLATE latin1_general_ci DEFAULT NULL,
+  `Section9Length` varchar(45) COLLATE latin1_general_ci DEFAULT NULL,
+  `Section10Length` varchar(45) COLLATE latin1_general_ci DEFAULT NULL,
+  `SubmitTime` datetime DEFAULT NULL,
+  PRIMARY KEY (`idOpening`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=6 ;
+
+--
+-- Dumping data for table `Opening`
+--
+
+INSERT INTO `Opening` VALUES(1, 1, 'Risk Analyst', 'Jersey City', 'About the role: This risk analyst/ technologist will help assist team of PMs (portfolio managers, quantitative analysts and researchers with creating in house risk factors. Must have strong experience using in-house simulators to back test strategies and evaluate their performance. ', 'Self Introduction', 'Education', 'Experience', 'Skills', 'Experience in Econometrics and multivariate Statistics', 'Experience in C++, Python or Perl', 'Experience with factor modeling.', 'Current Position', 'Your certifications', 'Your reference', '20', '30', '30', '30', '60', '60', '60', '30', '30', '30', '2012-08-08 04:28:07');
+INSERT INTO `Opening` VALUES(2, 3, 'Software Analyst', 'Miami, FL', 'Strong OOP Concepts', 'Self Introduction', 'Education', 'Experience', 'Skills', '', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2012-08-09 03:40:03');
+INSERT INTO `Opening` VALUES(3, 3, 'NET', 'NYC', 'OOP, ASP.NET', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2012-09-18 08:33:45');
+INSERT INTO `Opening` VALUES(4, 4, 'java engineer', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2013-04-24 00:29:00');
+INSERT INTO `Opening` VALUES(5, 5, 'Analyst', 'Los Angeles', 'Market Analyst', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2013-09-24 09:59:15');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `OpeningTemplates`
+--
+
+CREATE TABLE `OpeningTemplates` (
+  `idTemplates` int(11) NOT NULL AUTO_INCREMENT,
+  `idConsultant` int(11) DEFAULT NULL,
+  `TempName` varchar(45) COLLATE latin1_general_ci DEFAULT NULL,
+  `OpeningName` varchar(45) COLLATE latin1_general_ci DEFAULT NULL,
+  `OpeningLocation` varchar(45) COLLATE latin1_general_ci DEFAULT NULL,
+  `OpeningDescription` varchar(1000) COLLATE latin1_general_ci DEFAULT NULL,
+  `Section1` varchar(200) COLLATE latin1_general_ci DEFAULT NULL,
+  `Section2` varchar(200) COLLATE latin1_general_ci DEFAULT NULL,
+  `Section3` varchar(200) COLLATE latin1_general_ci DEFAULT NULL,
+  `Section4` varchar(200) COLLATE latin1_general_ci DEFAULT NULL,
+  `Section5` varchar(200) COLLATE latin1_general_ci DEFAULT NULL,
+  `Section6` varchar(200) COLLATE latin1_general_ci DEFAULT NULL,
+  `Section7` varchar(200) COLLATE latin1_general_ci DEFAULT NULL,
+  `Section8` varchar(200) COLLATE latin1_general_ci DEFAULT NULL,
+  `Section9` varchar(200) COLLATE latin1_general_ci DEFAULT NULL,
+  `Section10` varchar(200) COLLATE latin1_general_ci DEFAULT NULL,
+  `Section1Length` varchar(45) COLLATE latin1_general_ci DEFAULT NULL,
+  `Section2Length` varchar(45) COLLATE latin1_general_ci DEFAULT NULL,
+  `Section3Length` varchar(45) COLLATE latin1_general_ci DEFAULT NULL,
+  `Section4Length` varchar(45) COLLATE latin1_general_ci DEFAULT NULL,
+  `Section5Length` varchar(45) COLLATE latin1_general_ci DEFAULT NULL,
+  `Section6Length` varchar(45) COLLATE latin1_general_ci DEFAULT NULL,
+  `Section7Length` varchar(45) COLLATE latin1_general_ci DEFAULT NULL,
+  `Section8Length` varchar(45) COLLATE latin1_general_ci DEFAULT NULL,
+  `Section9Length` varchar(45) COLLATE latin1_general_ci DEFAULT NULL,
+  `Section10Length` varchar(45) COLLATE latin1_general_ci DEFAULT NULL,
+  PRIMARY KEY (`idTemplates`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=6 ;
+
+--
+-- Dumping data for table `OpeningTemplates`
+--
+
+INSERT INTO `OpeningTemplates` VALUES(1, 1, 'Behavior Questions', 'Marketing', 'NY', 'Add Job Description', 'Self Introduction', 'Education', 'Experience', 'Skills', 'Why you?', 'Experience of team working', 'What is your biggest accomplishment?', 'Tell me about how you worked effectively under pressure. ', 'Add question', 'Add question', '20', '30', '30', '30', '60', '60', '60', '60', '60', '60');
+INSERT INTO `OpeningTemplates` VALUES(2, 1, 'Technical Questions', 'Quant', 'NY', 'Add Job Description', 'Self Introduction', 'Education', 'Experience', 'Skills', 'Why you?', 'Talk about your work on Monte Carlo simulation', 'Talk about Black Schole', 'Talk about Greeks in option. ', 'Add question', 'Add question', '20', '30', '30', '30', '60', '60', '60', '60', '60', '60');
+INSERT INTO `OpeningTemplates` VALUES(3, 0, 'IT', NULL, NULL, NULL, 'Self Introduction', 'Education', 'Experience', 'Skills', 'OOP', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `OpeningTemplates` VALUES(4, 1, 'Java template', NULL, NULL, NULL, 'self introduction', 'java skills', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `OpeningTemplates` VALUES(5, 1, 'Analytics', NULL, NULL, NULL, 'Self Inroduction', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Resumes`
+--
+
+CREATE TABLE `Resumes` (
+  `idResume` int(11) NOT NULL AUTO_INCREMENT,
+  `idOpening` int(11) DEFAULT NULL,
+  `ConsultantTechSkills` int(11) DEFAULT NULL,
+  `ConsultantPresentSkills` int(11) DEFAULT NULL,
+  `ConsultantMngmtSkills` int(11) DEFAULT NULL,
+  `ConsultantComment` varchar(1000) COLLATE latin1_general_ci DEFAULT NULL,
+  `ConsultantDecision` binary(1) DEFAULT NULL,
+  `ManagerTechSkills` int(11) DEFAULT NULL,
+  `ManagerPresentSkills` int(11) DEFAULT NULL,
+  `ManagerMngmtSkills` int(11) DEFAULT NULL,
+  `ManagerComment` varchar(1000) COLLATE latin1_general_ci DEFAULT NULL,
+  `ManagerDecision` binary(1) DEFAULT NULL,
+  `idVideo1` int(11) DEFAULT NULL,
+  `idVideo2` int(11) DEFAULT NULL,
+  `idVideo3` int(11) DEFAULT NULL,
+  `idVideo4` int(11) DEFAULT NULL,
+  `idVideo5` int(11) DEFAULT NULL,
+  `idVideo6` int(11) DEFAULT NULL,
+  `idVideo7` int(11) DEFAULT NULL,
+  `idVideo8` int(11) DEFAULT NULL,
+  `idVideo9` int(11) DEFAULT NULL,
+  `idVideo10` int(11) DEFAULT NULL,
+  `SubmitTime` datetime DEFAULT NULL,
+  `idCandidate` int(11) DEFAULT NULL,
+  PRIMARY KEY (`idResume`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=20 ;
+
+--
+-- Dumping data for table `Resumes`
+--
+
+INSERT INTO `Resumes` VALUES(6, 3, 1, 2, 4, 'Please input your comments ', '\0', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2012-09-18 08:41:32', 4);
+INSERT INTO `Resumes` VALUES(7, NULL, NULL, NULL, NULL, 'test', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2013-04-21 10:55:12', 6);
+INSERT INTO `Resumes` VALUES(8, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2013-04-29 01:01:16', 7);
+INSERT INTO `Resumes` VALUES(9, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2013-04-29 01:11:01', 8);
+INSERT INTO `Resumes` VALUES(10, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2013-04-29 01:16:32', 10);
+INSERT INTO `Resumes` VALUES(11, 4, 1, 1, 2, 'test', 'Y', 8, 9, 9, 'Test', 'Y', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2013-04-29 11:24:13', 11);
+INSERT INTO `Resumes` VALUES(12, 2, 7, 8, 8, 'Please input your comments ', 'Y', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2013-04-29 11:28:38', 12);
+INSERT INTO `Resumes` VALUES(13, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2013-04-29 11:34:44', 13);
+INSERT INTO `Resumes` VALUES(14, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2013-04-29 11:38:48', 14);
+INSERT INTO `Resumes` VALUES(15, 3, 2, 3, 4, 'comments 123', 'Y', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2013-04-29 11:46:46', 15);
+INSERT INTO `Resumes` VALUES(16, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2013-04-30 09:25:11', 16);
+INSERT INTO `Resumes` VALUES(17, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2013-04-30 09:26:46', 0);
+INSERT INTO `Resumes` VALUES(18, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2013-04-30 09:31:04', 16);
+INSERT INTO `Resumes` VALUES(19, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2013-09-24 09:37:17', 17);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Video`
+--
+
+CREATE TABLE `Video` (
+  `idVideo` int(11) NOT NULL AUTO_INCREMENT,
+  `idCandidate` int(11) DEFAULT NULL,
+  `Tag` varchar(100) COLLATE latin1_general_ci DEFAULT NULL,
+  `Length` varchar(45) COLLATE latin1_general_ci DEFAULT NULL,
+  `SubmiteTime` datetime DEFAULT NULL,
+  `Path` varchar(1000) COLLATE latin1_general_ci DEFAULT NULL,
+  `Ranking` int(11) DEFAULT NULL,
+  `idOpening` int(11) NOT NULL,
+  PRIMARY KEY (`idVideo`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=24 ;
+
+--
+-- Dumping data for table `Video`
+--
+
+INSERT INTO `Video` VALUES(8, 4, 'ResumeText', NULL, '2012-09-18 08:41:32', 'upload/4/Saghir_Resume.pdf', NULL, 3);
+INSERT INTO `Video` VALUES(9, 4, 'Self Introduction', NULL, '2012-09-18 08:41:32', 'upload/4/SelfIntroduction.wmv', 7, 3);
+INSERT INTO `Video` VALUES(10, 4, 'Experience', NULL, '2012-09-18 08:41:32', 'upload/4/Experience.wmv', 7, 3);
+INSERT INTO `Video` VALUES(11, 6, 'Self Introduction', NULL, '2013-04-21 10:55:12', 'upload/6/SelfIntroduction.wmv', 0, 1);
+INSERT INTO `Video` VALUES(12, 7, 'Self Introduction', NULL, '2013-04-29 01:01:16', 'upload/7/SelfIntroduction.wmv', 0, 3);
+INSERT INTO `Video` VALUES(13, 8, 'Self Introduction', NULL, '2013-04-29 01:11:01', 'upload/8/SelfIntroduction.wmv', 0, 1);
+INSERT INTO `Video` VALUES(14, 10, 'Self Introduction', NULL, '2013-04-29 01:16:32', 'upload/10/SelfIntroduction.wmv', 0, 3);
+INSERT INTO `Video` VALUES(15, 11, 'self introduction', NULL, '2013-04-29 11:24:13', 'upload/11/selfintroduction.wmv', 5, 4);
+INSERT INTO `Video` VALUES(16, 12, 'Self Introduction', NULL, '2013-04-29 11:28:38', 'upload/12/SelfIntroduction.wmv', 0, 2);
+INSERT INTO `Video` VALUES(17, 13, 'Self Introduction', NULL, '2013-04-29 11:34:44', 'upload/13/SelfIntroduction.wmv', 0, 1);
+INSERT INTO `Video` VALUES(18, 14, 'Self Introduction', NULL, '2013-04-29 11:38:48', 'upload/14/SelfIntroduction.wmv', 0, 2);
+INSERT INTO `Video` VALUES(19, 15, 'Self Introduction', NULL, '2013-04-29 11:46:46', 'upload/15/SelfIntroduction.wmv', 0, 3);
+INSERT INTO `Video` VALUES(20, 16, 'Self Introduction', NULL, '2013-04-30 09:25:11', 'upload/16/SelfIntroduction.wmv', 0, 0);
+INSERT INTO `Video` VALUES(21, 0, 'Self Introduction', NULL, '2013-04-30 09:26:46', 'upload//SelfIntroduction.wmv', 0, 2);
+INSERT INTO `Video` VALUES(22, 16, 'Self Introduction', NULL, '2013-04-30 09:31:04', 'upload/16/SelfIntroduction.wmv', 0, 2);
+INSERT INTO `Video` VALUES(23, 17, 'Self Introduction', NULL, '2013-09-24 09:37:17', 'upload/17/SelfIntroduction.wmv', 0, 1);

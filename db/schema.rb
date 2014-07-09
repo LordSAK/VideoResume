@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140620114433) do
+ActiveRecord::Schema.define(version: 20140702045954) do
 
   create_table "opening_templates", force: true do |t|
     t.string   "TemplateName"
@@ -29,8 +29,47 @@ ActiveRecord::Schema.define(version: 20140620114433) do
     t.datetime "updated_at"
   end
 
+  create_table "resume_sections", force: true do |t|
+    t.integer  "Resume_id"
+    t.integer  "section_id"
+    t.string   "ResumePath"
+    t.integer  "Rate"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "resumes", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "opening_id"
+    t.date     "InterviewDate"
+    t.string   "From"
+    t.string   "To"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "sections", force: true do |t|
     t.string   "SectionName"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "selection_candidates", force: true do |t|
+    t.integer  "UserID"
+    t.integer  "CandidateID"
+    t.integer  "OpeningsID"
+    t.integer  "ConsultantID"
+    t.string   "ConsultantSelection"
+    t.integer  "Con_Tech_Skills"
+    t.integer  "Con_Pre_Skills"
+    t.integer  "Con_Mng_Skills"
+    t.string   "Con_Comments"
+    t.integer  "ManagerID"
+    t.string   "ManagerSelection"
+    t.integer  "Mngr_Tech_Skills"
+    t.integer  "Mngr_Pre_Skills"
+    t.integer  "Mngr_Mng_Skills"
+    t.string   "Mngr_Comments"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

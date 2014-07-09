@@ -1,0 +1,300 @@
+<div id="nave" >
+	<ul id="menu" style="padding: 10px;margin: 5px">
+		<li class="sub"><a href="openings.php">Openings</a>
+		</li><li class="sub"><a href="viewresume.php">View Resume</a></li>
+	</ul>
+	<div id="opening" style="background:#C3CEE0;padding: 10px;margin: 5px auto;">
+		<table class="table" width="100%">
+            <th><font size="+1">Upload Resume</font></th>
+        </table>
+        <%= form_for :resume, :url => { :method => :post, :action => :create },  :html => {:multipart => true} do |f| %>
+			<div style="background-color:transparent;border: 0px dotted #333;padding: 5px;margin: 0px auto;" >
+				<div id="section" style="background-color:transparent;">
+                    
+    				<div class='row' id='selfintroduction'>
+    					<% @sections.each do |s| %>
+                            <span class='label' style="font-size:small;font-weight:bold">
+                                <%= s.SectionName %>
+                                <input type='hidden' value='<%= s.id %>' name='Sections[]'/>
+                            </span>
+                            <br/>
+				            <span class='formw' style="font-size:small">
+                                <input type='file' id='Self' name='Self[]'/>
+                            </span>
+                            <br/>
+                            <span class='rb' style="font-size:small">
+                                <%1.upto(10) do |n|%>
+                                    <input type="radio" name="<%= s.id%>" value="<%= n %>"><%=n%>
+    							<%end%>						
+				            </span>
+                            <br/>
+                            <br/>
+
+                        <% end %>
+                        <input type='hidden' value='<%= @opening %>' name="opening_id" />
+					</div>
+					<br/>
+
+		
+        			<div class='row' id='selfintroduction' style="font-size:small">
+                   		<span class="label">Text Resume<input type="hidden" value="ResumeText" name="SecTxtRes"/></span>
+               			<span class="formw"><input type="file" id="ResumeText" name="fileTxtRes"/></span>
+                    </div>
+                    
+                    <br/>
+                	<br/>     
+					<div class='row' style="font-size:small">
+						<span class='label'>
+							<Label for="Lbl_DateTime" ForeColor="#FF3300">Requested Date/Time</Label>
+        		    	</span>
+		                <span class='formw'>
+                		    <input type="text" Name="TxtBx_DateTime" class="hajanDatePicker" />
+        		           <!-- <a onclick="popupCalendar()" >Calendar</a>-->
+		                    &nbsp;
+                            between
+		                    <select name="timingFrom">
+        			            <option Value=" "> </option>
+		                        <option>06:00AM</option>
+                        		<option>06:30AM</option>
+                		        <option>07:00AM</option>
+        		                <option>07:30AM</option>
+		                        <option>08:00AM</option>
+                        		<option>08:30AM</option>
+                		        <option>09:00AM</option>
+        		                <option>09:30AM</option>
+		                        <option>10:00AM</option>
+                        		<option>10:30AM</option>
+                		        <option>11:00AM</option>
+        		                <option>11:30AM</option>
+		                        <option>12:00PM</option>
+                        		<option>12:30PM</option>
+                		        <option>01:00PM</option>
+        		                <option>01:30PM</option>
+		                        <option>02:00PM</option>
+                        		<option>02:30PM</option>
+                		        <option>03:00PM</option>
+        		                <option>03:30PM</option>
+		                        <option>04:00PM</option>
+                        		<option>04:30PM</option>
+                		        <option>05:00PM</option>
+        		                <option>05:30PM</option>
+		                        <option>06:00PM</option>
+                        		<option>06:30PM</option>
+                    		</select>
+							&nbsp;
+                            and
+                    		<select name="timingTo">
+                    			<option Value=" "> </option>
+	                	        <option>06:00AM</option>
+    	        	            <option>06:30AM</option>
+        		                <option>07:00AM</option>
+    	    	                <option>07:30AM</option>
+	            	            <option>08:00AM</option>
+                    	    	<option>08:30AM</option>
+                    		    <option>09:00AM</option>
+                	        	<option>09:30AM</option>
+	            	            <option>10:00AM</option>
+    	    	                <option>10:30AM</option>
+    		                    <option>11:00AM</option>
+	        	                <option>11:30AM</option>
+                	        	<option>12:00PM</option>
+                    		    <option>12:30PM</option>
+                	    	    <option>01:00PM</option>
+            	            	<option>01:30PM</option>
+	        	                <option>02:00PM</option>
+    		                    <option>02:30PM</option>
+	    	                    <option>03:00PM</option>
+            	            	<option>03:30PM</option>
+                	    	    <option>04:00PM</option>
+                		        <option>04:30PM</option>
+            	        	    <option>05:00PM</option>
+        	                	<option>05:30PM</option>
+    	                    	<option>06:00PM</option>
+	                        	<option>06:30PM</option>
+                    		</select>
+                   		</span>
+					</div>
+				
+			        <div align="left" style="font-size:small">
+                        <input type="submit" value="Upload" name="Save"/>
+                    </div>
+				</div>
+			<% end %>
+		</div>
+	<!-- END PAGE SOURCE -->
+
+	<script type="text/javascript" language="javascript">
+    	function ModalPopupsAddSection() {
+        	ModalPopups.Custom("idCustom1",
+                "Add Section",
+                "<div style='padding: 20px;'>" +
+                "<table>" +
+                "<tr><td>Add Section  </td><td><input type='text' id='inputCustom1Name' style='width:100px;'/></td></tr>" +
+                "</table>" +
+                "</div>",
+                {
+                    width: 300,
+                    height: 150,
+                    buttons: "ok,cancel",
+                    okButtonText: "Add",
+                    cancelButtonText: "Cancel",
+                    onOk: "ModalPopupsCustom1Save()",
+                    onCancel: "ModalPopupsCustom1Cancel()"
+                }
+            );
+        	ModalPopups.GetCustomControl("inputCustom1Name").focus();
+    	}
+    	function ModalPopupsCustom1Save() {
+    	    var custom1Name = ModalPopups.GetCustomControl("inputCustom1Name");
+       
+	        if (custom1Name.value == "") {
+            	alert("Please submit proper Section Name");
+        	    custom1Name.focus();
+    	    }
+	        else {  
+            	addElement(custom1Name.value);
+        	    ModalPopups.Close("idCustom1");
+    	    }
+	    }
+    	function addElement(title) {
+        	var section = document.getElementById("section");
+
+        	var divElement = document.createElement("div");
+        	section.innerHTML += "<div class='row' id='" + trim(title.toString().toLowerCase()) + "'><span class='label'>" + title + "</span><span class='formw'><input type='File'/></span><span class='formw'><a href='javascript:ModalPopupsAddSubSection('" + trim(title.toString().toLowerCase()) + "');'>Add Sub Section</a><br /></span></div>";
+    	}
+    	function trim(text) {
+        	return text.replace(/^\s+|\s+$/g, "");
+    	}
+
+    	function ModalPopupsCustom1Cancel() {
+        	ModalPopups.Cancel("idCustom1");
+    	}
+	</script>
+
+	<script type="text/javascript">
+
+    	function ModalPopupsDeleteSection() {
+        	ModalPopups.Custom("idCustom2",
+                "Delete Section",
+                search(),
+                {
+                    width: 300,
+                    height: 150,
+                    buttons: "ok,cancel",
+                    okButtonText: "OK",
+                    cancelButtonText: "Cancel",
+                    onOk: "ModalPopupsCustom2Save()",
+                    onCancel: "ModalPopupsCustom2Cancel()"
+                }
+            );
+    	}
+   
+    	function ModalPopupsCustom2Save() {
+        	var array = new Array();
+	        var arr = document.getElementsByName("del");
+        	for (var i = 0; i < arr.length; i++) {
+            	if (arr[i].checked) {
+        	        array.push(arr[i].value);
+    	        }
+	        }
+        	for (var j = 0; j < array.length; j++) {
+    	        var cell = document.getElementById("section");
+
+	            if (cell.hasChildNodes()) {
+                	for (var i = cell.childNodes.length - 1; i >= 0; i--) {
+                    	if (cell.childNodes[i].nodeType == 1) {
+                        	if (cell.childNodes[i].innerHTML.indexOf(array[j]) >= 0) {
+                            	cell.removeChild(cell.childNodes[i]);
+                        	}
+                    	} 
+                	}
+            	}
+        	}
+        	ModalPopups.Close("idCustom2");
+    	}
+
+    	function search() {
+    	    var array = new Array();
+	        cn = document.getElementById("section").childNodes;
+        	for (var i = 0; i < cn.length; i++) {
+        	    if (cn[i].nodeType == 1) {
+    	            var str = cn[i].innerHTML;
+	                var arr = str.split('>');
+                	var lbl = arr[1].split('<');
+                
+        	        if (lbl[0].indexOf('Self Introduction')==-1 && lbl[0].indexOf('Education')==-1 && lbl[0].indexOf('Experience')==-1 && lbl[0].indexOf('Skills')==-1) {
+            	        array.push(lbl[0]);
+    	            }
+	            }
+        	}
+        	var htm = '';
+        	if (array.length > 0) {
+            	var htm = '';
+            	htm += "<div style='padding: 20px;' id='Del'>";
+            	htm += "<table>";
+            	for (var j = 0; j < array.length; j++) {
+                	htm += "<input type='checkbox' id='" + array[j] + "' name='del' value='" + array[j] + "'>" + array[j] + "<br/>";
+            	}
+            	htm += "</div>";
+        	}
+        	else {
+            	htm += "Basic Sections are not allowed to delete";
+	        }
+        	return htm;
+    	}
+
+    	function ModalPopupsCustom2Cancel() {
+        	ModalPopups.Cancel("idCustom2");
+    	}
+
+	</script>
+
+	<script type="text/javascript" language="javascript">
+    	function ModalPopupsAddSubSection(obj) {
+      		ModalPopups.Custom("idCustom3",
+                "Add Sub Section",
+                "<div style='padding: 20px;'>" +
+                "<table>" +
+                "<tr><td>Add Sub Section  </td><td><input type='text' id='inputCustomSecName' class='"+obj+"' style='width:100px;'/></td></tr>" +
+                "</table>" +
+                "</div>",
+                {
+                    width: 300,
+                    height: 150,
+                    buttons: "ok,cancel",
+                    okButtonText: "Add",
+                    cancelButtonText: "Cancel",
+                    onOk: "ModalPopupsCustomSubSave()",
+                    onCancel: "ModalPopupsCustomsubCancel()"
+                }
+            );
+        	ModalPopups.GetCustomControl("inputCustomSecName").focus();
+    	}
+    	function ModalPopupsCustomSubSave() {
+       		var custom1Name = ModalPopups.GetCustomControl("inputCustomSecName");
+    	   if (custom1Name.value == "") {
+	            alert("Please submit proper Section Name");
+            	custom1Name.focus();
+        	}
+    	    else {
+           
+	            addsubElement(custom1Name.value, custom1Name.className);
+            	ModalPopups.Close("idCustom3");
+        	}
+    	}
+    	function addsubElement(title, div) {
+        	var section = document.getElementById(div);
+       		var html = section.innerHTML;
+	        var index=html.toLowerCase().lastIndexOf("<input type=file></span");
+        	section.innerHTML = insertAt(html, index + 25, "<span class='labels'><br/>" + title + "</span><span class='formws'><input type='File'/></span> ");
+        	//section.appendChild(html);
+    	}
+	    function insertAt(src, index, str) {
+    	    return src.substr(0, index) + str + src.substr(index)
+	    }
+
+    	function ModalPopupsCustomsubCancel() {
+        	ModalPopups.Cancel("idCustom3");
+    	}
+	</script>
+</div>

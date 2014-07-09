@@ -5,8 +5,13 @@
 		<li><a style="font-size:medium" href="#"><span>About</span></a></li>
 		<li><a style="font-size:medium" href="#"><span>Contact Us</span></a></li>
 		<% if !current_user.nil? %>
-			<li><a style="font-size:medium" href="<%= root_path %>" data-method="delete" rel="nofollow"><span>Log out</span></a></li>
-			
+			<li>
+				<a style="font-size:medium" href="/signout" data-method="delete" rel="nofollow">
+					<span>
+						Log out
+					</span>
+				</a>
+			</li>
 		<% end %>
 	 </ul>
 </div>

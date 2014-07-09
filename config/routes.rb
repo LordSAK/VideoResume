@@ -1,16 +1,29 @@
 Rails.application.routes.draw do
-  get "openings/new"
-  get "openings/edit"
-  get "users/new"
+
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
   resources :templates
   resources :openings
+  resources :resumes
+  resources :managers
+  resources :recruiters
 
-  root "sessions#new"
-  match '/signup',     to: 'users#new',           via: 'get'
-  match '/signin',     to: 'sessions#new',        via: 'get'
-  match '/signout',    to: 'sessions#destroy',    via: 'delete'
+ root "sessions#new"
+  match '/signup',               to: 'users#new',                      via: 'get'
+  match '/signin',               to: 'sessions#new',                   via: 'get'
+  match '/signout',              to: 'sessions#destroy',               via: 'delete'
+  match '/opening',              to: 'static_pages#openings',          via: 'get'  
+  match '/viewresumes',          to: 'static_pages#viewresume',        via: 'get'
+  #match '/recruiterviewresume',  to: 'openings#viewvideoresume',       via: 'get' 
+  match '/managerviewresumes',   to: 'managers#managerviewresume',     via: 'get'
+  match '/managerviewresumes',   to: 'managers#managerviewresume',     via: 'post'
+ # match '/managerviewresumes',   to: 'managers#managerviewresume',     via: 'post'
+  match '/manageroptions',       to: 'managers#manageroption',         via: 'get'
+  match '/managerdecisions',     to: 'managers#managerdecision',       via: 'get'
+  match '/recruiterviewresumes', to: 'recruiters#recruiterviewresume', via: 'get'
+  match '/recruiterviewresumes', to: 'recruiters#recruiterviewresume', via: 'post'
+  match '/recruiteroptions',     to: 'recruiters#recruiteroption',     via: 'get'
+  match '/recruiterdecisions',   to: 'recruiters#recruiterdecision',   via: 'get'
   
 # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

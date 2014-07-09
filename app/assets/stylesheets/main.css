@@ -410,3 +410,12 @@ img.f-right {
 .input-submit {
 	padding:3px;
 }
+#opening1
+{
+	float: right;
+ 	top:180px;
+ 	left:290px;
+ 	width:100%;
+ 	text-align:justify;
+ 	position:absolute;
+}

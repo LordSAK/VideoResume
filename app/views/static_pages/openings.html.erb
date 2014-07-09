@@ -1,0 +1,35 @@
+<div id="nave" >
+    <ul id="menu" style="padding: 10px;margin: 5px">
+        <li class="sub"><a href="opening">Openings</a></li>
+        <li class="sub"><a href="viewresumes">View Resume</a></li>
+    </ul>
+</div>
+<div id="opening" style="background:#C3CEE0; margin: 160px 40px;">
+    <table class="table" width="80%">
+        <th><font size="+1">Openings</font></th>
+    </table>
+	<% @getopening.each do |o| %>
+    <table>
+            <tr>
+                <td>
+                    <font size="2.5" style='color:Blue;font-weight:bold'><%= o.OpeningTitle %></font>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <font size="2" style='color:maroon;'><%= o.OpeningLocation %></font>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                   <Font size="2"> <%= o.OpeningDescription %>
+                   	-
+                    <a href='<%= edit_resume_path(o.id) %>'>
+                      Apply
+                    </a></font>    
+                </td>
+            </tr>
+    </table>
+	<% end %>
+</div>
+

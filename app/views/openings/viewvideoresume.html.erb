@@ -1,0 +1,193 @@
+<div id="nave">
+  <ul id="menu">
+    <li class="sub"><a href="">View Video Resume</a>
+    </li>
+    <li class="sub"><a href="<%= templates_path %>">Openings</a>
+    </li>
+    <li class="sub"><a href="recruiteroption.php">Options</a>
+    </li>
+    <li class="sub"><a href="recruiterdecision.html">Decision</a>
+    </li>
+  </ul>
+</div>
+<div id="opening1">
+<%= form_for(:viewvideoresume,:html => {:id => "viewvideoresume"}) do |f| %>
+    <table class="table" width="100%">
+        <tr>
+            <th width="10%" style="font-size:15px;">Candidate</th>
+            <th width="50%" style="font-size:15px;">Video</th>
+            <th style="font-size:15px;">Scores</th>
+        </tr>
+        <tr> 
+            <td>
+            </td>
+            <td style="text-align:center;">
+            </br>
+                <%= video_player({:file => "/video/water_msg.flv"}, {:width => 470, :height => 400, :id => "water_msg_video", :onclick => "alert('clicked!');"}) %>
+            </br>
+                <button style="float:left" class="stylbutton" type="button" onclick="totalselect();showDiv('prev');">Previous</button>
+                <button style="float:right" class="stylbutton"type="button" onclick="totalselect();showDiv('next');">Next</button>
+            </td>
+            <td align="center">
+                <table width="90%">
+                    <tr>
+                        <td>
+                            </br></br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <label style="font-size:small;">Selected?</label>
+                            <label class="radio inline" style="font-size: small">
+                            </br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <%= f.radio_button :select1, "Yes", :id => "rb_select1" %>
+                            Yes
+                            </label>&nbsp;&nbsp;
+                            <label class="radio inline" style="font-size: small">
+                            <%= f.radio_button :uselect2, "No", :id => "rb_select2" %>
+                            No
+                            </label></br></br></br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <label style="font-size:small; font-weight:bold;">Scores</label>
+                            </br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <label style="font-size:small;">Technical Skills</label>
+                            </br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <label class="radio inline" style="font-size: x-small">
+                            <%= f.radio_button :r_one, "One", :id => "rb_one" %>
+                            1
+                            </label>&nbsp;&nbsp;
+                            <label class="radio inline" style="font-size: x-small">
+                            <%= f.radio_button :r_two, "Two", :id => "rb_two" %>
+                            2
+                            </label>
+                            <label class="radio inline" style="font-size: x-small">
+                            <%= f.radio_button :r_three, "Three", :id => "rb_three" %>
+                            3
+                            </label>&nbsp;&nbsp;
+                            <label class="radio inline" style="font-size: x-small">
+                            <%= f.radio_button :r_four, "Four", :id => "rb_four" %>
+                            4
+                            </label>
+                            <label class="radio inline" style="font-size: x-small">
+                            <%= f.radio_button :r_five, "Five", :id => "rb_five" %>
+                            5
+                            </label>&nbsp;&nbsp;
+                            <label class="radio inline" style="font-size: x-small">
+                            <%= f.radio_button :r_six, "Six", :id => "rb_six" %>
+                            6
+                            </label>
+                            <label class="radio inline" style="font-size: x-small">
+                            <%= f.radio_button :r_seven, "Seven", :id => "rb_seven" %>
+                            7
+                            </label>&nbsp;&nbsp;
+                            <label class="radio inline" style="font-size: x-small">
+                            <%= f.radio_button :r_eight, "Eight", :id => "rb_eight" %>
+                            8 
+                            </label>
+                            <label class="radio inline" style="font-size: x-small">
+                            <%= f.radio_button :r_nine, "Nine", :id => "rb_nine" %>
+                            9
+                            </label>&nbsp;&nbsp;
+                            <label class="radio inline" style="font-size: x-small">
+                            <%= f.radio_button :r_ten, "Ten", :id => "rb_ten" %>
+                            10
+                            </label>
+                            </br></br></br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <label style="font-size:small;">Presentation Skills</label>
+                            </br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <label class="radio inline" style="font-size: x-small">
+                            <%= f.radio_button :r_one, "One", :id => "rb_one" %>
+                            1
+                            </label>&nbsp;&nbsp;
+                            <label class="radio inline" style="font-size: x-small">
+                            <%= f.radio_button :r_two, "Two", :id => "rb_two" %>
+                            2
+                            </label>
+                            <label class="radio inline" style="font-size: x-small">
+                            <%= f.radio_button :r_three, "Three", :id => "rb_three" %>
+                            3
+                            </label>&nbsp;&nbsp;
+                            <label class="radio inline" style="font-size: x-small">
+                            <%= f.radio_button :r_four, "Four", :id => "rb_four" %>
+                            4
+                            </label>
+                            <label class="radio inline" style="font-size: x-small">
+                            <%= f.radio_button :r_five, "Five", :id => "rb_five" %>
+                            5 
+                            </label>&nbsp;&nbsp;
+                            <label class="radio inline" style="font-size: x-small">
+                            <%= f.radio_button :r_six, "Six", :id => "rb_six" %>
+                            6
+                            </label> 
+                            <label class="radio inline" style="font-size: x-small">
+                            <%= f.radio_button :r_seven, "Seven", :id => "rb_seven" %>
+                            7
+                            </label>&nbsp;&nbsp;
+                            <label class="radio inline" style="font-size: x-small">
+                            <%= f.radio_button :r_eight, "Eight", :id => "rb_eight" %>
+                            8 
+                            </label>
+                            <label class="radio inline" style="font-size: x-small">
+                            <%= f.radio_button :r_nine, "Nine", :id => "rb_nine" %>
+                            9
+                            </label>&nbsp;&nbsp;
+                            <label class="radio inline" style="font-size: x-small">
+                            <%= f.radio_button :r_ten, "Ten", :id => "rb_ten" %>
+                            10
+                            </label>
+                            </br></br></br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <label style="font-size:small;">Management Skills</label>
+                            </br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <label class="radio inline" style="font-size: x-small">
+                            <%= f.radio_button :r_one, "One", :id => "rb_one" %>
+                            1
+                            </label>&nbsp;&nbsp;
+                            <label class="radio inline" style="font-size: x-small">
+                            <%= f.radio_button :r_two, "Two", :id => "rb_two" %>
+                            2
+                            </label>
+                            <label class="radio inline" style="font-size: x-small">
+                            <%= f.radio_button :r_three, "Three", :id => "rb_three" %>
+                            3
+                            </label>&nbsp;&nbsp;
+                            <label class="radio inline" style="font-size: x-small">
+                            <%= f.radio_button :r_four, "Four", :id => "rb_four" %>
+                            4
+                            </label>
+                            <label class="radio inline" style="font-size: x-small">
+                            <%= f.radio_button :r_five, "Five", :id => "rb_five" %>
+                            5
+                            </label>&nbsp;&nbsp;
+                            <label class="radio inline" style="font-size: x-small">
+                            <%= f.radio_button :r_six, "Six", :id => "rb_six" %>
+                            6
+                            </label>
+                            <label class="radio inline" style="font-size: x-small">
+                            <%= f.radio_button :r_seven, "Seven", :id => "rb_seven" %>
+                            7
+                            </label>&nbsp;&nbsp;
+                            <label class="radio inline" style="font-size: x-small">
+                            <%= f.radio_button :r_eight, "Eight", :id => "rb_eight" %>
+                            8
+                            </label>
+                            <label class="radio inline" style="font-size: x-small">
+                            <%= f.radio_button :r_nine, "Nine", :id => "rb_nine" %>
+                            9
+                            </label>&nbsp;&nbsp;
+                            <label class="radio inline" style="font-size: x-small">
+                            <%= f.radio_button :r_ten, "Ten", :id => "rb_ten" %>
+                            10
+                            </label>
+                            </br></br></br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <label style="font-size:small;">Comments</label>
+                            </br></br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <label style="font-size:small;">Manager's email for furthur Reviews:</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                           (Separate by ';' if more then one)</label>
+                            </br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <%= f.text_field :manager_emal,placeholder: "" %>
+                            </br></br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <button class="stylbutton">Save</button>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+<% end %>
+</div>  
