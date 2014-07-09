@@ -14,7 +14,7 @@ class ResumesController < ApplicationController
   				File.open(Rails.root.join('public', 'data', s.original_filename+"sec"+i.to_s+"opening"+params[:opening_id]+"user"+current_user.id.to_s), 'wb') do |file|
   					file.write(s.read)
   					puts params[sec]
-            path="public/data/"+s.original_filename.to_s.split('.')[0]+"sec"+i.to_s+"opening"+params[:opening_id]+"user"+current_user.id.to_s+"."+s.original_filename.to_s.split('.')[1]
+            path="/data/"+s.original_filename.to_s.split('.')[0]+"sec"+i.to_s+"opening"+params[:opening_id]+"user"+current_user.id.to_s+"."+s.original_filename.to_s.split('.')[1]
   					@resumesec=ResumeSection.new(:ResumePath => path, :section_id => sec,  :Rate => params[sec],:Resume_id => @resume.id)
             @resumesec.save
   				end

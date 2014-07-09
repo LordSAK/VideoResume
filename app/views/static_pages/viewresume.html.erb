@@ -12,14 +12,15 @@
     function change_url(val) {
       window.location="/viewresumes?val="+val;
     }
-    $( document ).ready(function() {
-      $( "#click" ).click(function() {
-        var vid=document.getElementById("water_msg_video");
-        vid.sendEvent('LOAD', this.title);
-      });
-    });
-  </script>
 
+      function myFunction(a) {
+        alert( "Hello World" );
+        alert(a.title);
+        var vid=document.getElementById("water_msg_video");
+        vid.sendEvent('LOAD', a.title);
+}
+
+  </script>
 
 
   <table class="table" border>
@@ -39,14 +40,14 @@
             <% @sections=ResumeSection.joins('inner join "resumes" on "resumes"."id"="resume_sections"."Resume_id"').where('"user_id" =?',u.id) %>
             <% @sections.each do |s| %>
              <% sectionName=Section.joins('inner join "resume_sections" on "resume_sections"."section_id"="sections"."id"').where('"sections"."id"=?', s.section_id) %>
-            -<a href="#" title="<%= s.ResumePath%>" id="click"><%=sectionName.first.SectionName %></a>
+            -<a href="#" title="<%= s.ResumePath%>" onclick="myFunction(this)"><%=sectionName.first.SectionName %></a>
             <br/>
             <% end %>
           <% end %>
         <% end %>
       </td>
       <td>
-        <%= video_player({:file => "/video/water_msg.flv"}, {:width => 470, :height => 400, :id => "water_msg_video"}) %>
+        <%= video_player({:file => "/data/SelfIntroductionsec0opening1user5.wmv"}, {:width => 470, :height => 400, :id => "water_msg_video"}) %>
       </td>
     </tr>
     </table>

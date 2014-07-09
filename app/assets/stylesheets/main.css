@@ -419,3 +419,12 @@ img.f-right {
  	text-align:justify;
  	position:absolute;
 }
+#openingmngrdec
+{
+    float: right;
+ top:155px;
+ left:260px;
+ width:100%;
+ text-align:justify;
+ position:absolute;
+}

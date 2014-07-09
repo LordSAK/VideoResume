@@ -12,21 +12,26 @@
   </ul>
 </div>
 <div id="openingmngrdec">
+  <% @selection_candidate.each do |s| %>
+  <% @candidate_details = User.where( :id => s.CandidateID ) %>
+  <% @opening_details = Opening.where( :id => s.OpeningsID ) %>
+  <% @candidate_details.each do |can_details| %>
 			<table class="table" width="100%">
 			<th><font size="+1">Decision</font></th>
 			<tr height="40px">
-				<td style='border-width:0px; font-size:small;color:#06C; vertical-align:middle; margin-left:40px;'><a href='javascript:ModalPopupsSelected()'>Ferry Corsten</a>
+				<td style='border-width:0px; font-size:small;color:#06C; vertical-align:middle; margin-left:40px;'><a href='javascript:ModalPopupsSelected()'><%= can_details.first_name + " " + can_details.last_name %></a>
 				</td>
 			</tr>
 			</table>
 </div>
+<% @opening_details.each do |open_details| %>
 <script type="text/javascript" language="javascript">
     function ModalPopupsSelected() {
         ModalPopups.Custom("CreateTemp",
                 "Candidate",
                 "<div style='padding: 20px;'>" +
                 "<table>" +
-                "<tr><td >Name: </td><td style='border-width:0px;'>Ferry Corsten</td></tr><tr><td >Email: </td><td style='border-width:0px;'>ferry@corsten.com</td></tr><tr><td >Phone: </td><td style='border-width:0px;'></td></tr><tr><td >Address: </td><td style='border-width:0px;'></td></tr><tr><td >Applied for: </td><td style='border-width:0px;'>java engineer</td></tr><tr><td >Consultant: </td><td style='border-width:0px;'></td></tr><table><tr><td >Technical Skills: </td><td style='border-width:0px;'>Presentation Skills</td><td>Management Skills</td></tr><tr><td></td><td></td><td></td></tr></table><tr><td >Manager: </td><td style='border-width:0px;'></td></tr><table><tr><td >Technical Skills: </td><td style='border-width:0px;'>Presentation Skills</td><td>Management Skills</td></tr><tr><td></td><td></td><td></td></tr></table>" +
+                "<tr><td >Name: </td><td style='border-width:0px;'><%= can_details.first_name + " " + can_details.last_name %></td></tr><tr><td >Email: </td><td style='border-width:0px;'><%= can_details.email %></td></tr><tr><td >Phone: </td><td style='border-width:0px;'><%= can_details.phone %></td></tr><tr><td >Address: </td><td style='border-width:0px;'><%= can_details.address %></td></tr><tr><td >Applied for: </td><td style='border-width:0px;'><%= open_details.OpeningTitle %></td></tr><tr><td >Consultant: </td><td style='border-width:0px;'></td></tr><table><tr><td >Technical Skills: </td><td style='border-width:0px;'>Presentation Skills</td><td>Management Skills</td></tr><tr><td></td><td></td><td></td></tr><tr><td><%= s.Con_Tech_Skills %></td><td><%= s.Con_Pre_Skills %></td><td><%= s.Con_Mng_Skills %></td></tr>" +
                 "</table>" +
                 "</div>",
                 {
@@ -61,3 +66,6 @@
         ModalPopups.Cancel("CreateTemp");
     }
 </script>
+<% end %>
+<% end %>
+ <% end %>
