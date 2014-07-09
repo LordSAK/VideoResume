@@ -22,11 +22,11 @@
     		</tr>
     		<tr>
     			<td style="border-width:0px;">
-            <table width="300" border="2px;" >
+            <table border="2px;" >
               <% @openings.each do |o| %>
       					<tr>
-               		<td width='150' style='border-width:0px;'>
-               			<b><%= o.OpeningTitle %></b>
+               		<td  style='border-width:0px;'>
+               			<%= o.OpeningTitle %>
                		</td>
 				  		    <td style='border-width:0px;'>
                 		<a href='<%= edit_opening_path(o.id) %>'>Edit Opening</a>
@@ -43,11 +43,11 @@
        			</table>
        		</td>
        		<td style="border-width:0px;">
-       			<table width="300" border="2px;" >
+       			<table  border="2px;" >
            		<% @templates.each do |t| %>
 			         	<tr>
-             	  	<td width='150' style='border-width:0px;'>
-    								<b><%=t.TemplateName %></b>
+             	  	<td style='border-width:0px;'>
+    								<%=t.TemplateName %>
             			</td>
               		<td style='border-width:0px;'>
               			<a href='<%= edit_template_path(t.id) %>'>Edit Template</a>
