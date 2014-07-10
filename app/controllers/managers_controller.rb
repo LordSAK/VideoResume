@@ -11,7 +11,7 @@ class ManagersController < ApplicationController
       @mngr_mng_skills = params[:managerviewresumes][:mng_skills]
       @mngr_comments = params[:managerviewresumes][:Comments]
       
-      @selected=SelectionCandidate.where("OpeningsID = ? and :CandidateID = ?",params[:opening_id],params[:candidate_id])
+      @selected=SelectionCandidate.where("OpeningsID = ? and CandidateID = ?",params[:opening_id],params[:candidate_id])
       if @selected.nil?
         @candidateSelection = SelectionCandidate.new(:ManagerID => current_user.id, :ManagerSelection => @mngr_selection, :Mngr_Tech_Skills => @mngr_tech_skills, :Mngr_Pre_Skills => @mngr_pre_skills, :Mngr_Mng_Skills => @mngr_mng_skills, :Mngr_Comments => @mngr_comments,:OpeningsID=> params[:opening_id], :CandidateID =>params[:candidate_id])
         @candidateSelection.save
