@@ -9,56 +9,116 @@
 <div id="openingmngrdec">
   		<table class="table" width="100%">
 			<th><font size="+1">Decision</font></th>
-        <% @selection_manager.each do |s| %>
+        <% @selection_manager.each_with_index do |s,i| %>
         <% @candidate_details = User.where( :id => s.CandidateID ) %>
         <% @opening_details = Opening.where( :id => s.OpeningsID ) %>
         <% @candidate_details.each do |can_details| %>
 			<tr height="40px">
-				<td style='border-width:0px; font-size:small;color:#06C; vertical-align:middle; margin-left:40px;'><a href='javascript:ModalPopupsSelected()'><%= can_details.first_name + " " + can_details.last_name %></a>
-				</td>
-			</tr>
-      <% @opening_details.each do |open_details| %>
-<script type="text/javascript" language="javascript">
-    function ModalPopupsSelected() {
-        ModalPopups.Custom("CreateTemp",
-                "Candidate",
-                "<div style='padding: 20px;'>" +
-                "<table>" +
-                "<tr><td >Name: </td><td style='border-width:0px;'><%= can_details.first_name + " " + can_details.last_name %></td></tr><tr><td >Email: </td><td style='border-width:0px;'><%= can_details.email %></td></tr><tr><td >Phone: </td><td style='border-width:0px;'><%= can_details.phone %></td></tr><tr><td >Address: </td><td style='border-width:0px;'><%= can_details.address %></td></tr><tr><td >Applied for: </td><td style='border-width:0px;'><%= open_details.OpeningTitle %></td></tr><tr><td >Consultant: </td><td style='border-width:0px;'></td></tr><table><tr><td >Technical Skills: </td><td style='border-width:0px;'>Presentation Skills</td><td>Management Skills</td></tr><tr><td></td><td></td><td></td></tr><tr><td><%= s.Con_Tech_Skills %></td><td><%= s.Con_Pre_Skills %></td><td><%= s.Con_Mng_Skills %></td></tr></table><tr><td >Manager: </td><td style='border-width:0px;'></td></tr><table><tr><td >Technical Skills: </td><td style='border-width:0px;'>Presentation Skills</td><td>Management Skills</td></tr><tr><td></td><td></td><td></td></tr><tr><td><%= s.Mngr_Tech_Skills %></td><td><%= s.Mngr_Pre_Skills %></td><td><%= s.Mngr_Mng_Skills %></td></tr></table>" +
-                "</table>" +
-                "</div>",
-                {
-                    width: 300,
-                    height: 150,
-                    buttons: "ok,cancel",
-                    okButtonText: "OK",
-                    cancelButtonText: "Cancel",
-                    onOk: "ModalPopupsCustom1Save()",
-                    onCancel: "ModalPopupsCustom1Cancel()"
-                }
-            );
+				<td style='border-width:0px; font-size:small;color:#06C; vertical-align:middle; margin-left:40px;'>
+          <a href="#<%= "#{i.to_s}" %>" role="button"  data-toggle="modal">
+            <%= can_details.first_name + " " + can_details.last_name %>
+          </a>
 
-        ModalPopups.GetCustomControl("inputCustom1Name").focus();
-    }
-    function ModalPopupsCustom1Save() {
-        //var custom1Name = ModalPopups.GetCustomControl("inputCustom1Name");
+          <% @opening_details.each do |open_details| %>
+          <div id="<%= "#{i.to_s}" %>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+              <h4 id="myModalLabel">Candidate</h4>
+            </div>
+            <div class="modal-body">
+              <div style='padding: 20px;'>
+                <table border="0">
+                  <tr>
+                    <td  style='border-width:0px;'>Name: </td>
+                    <td style='border-width:0px;'>
+                      <%= can_details.first_name + " " + can_details.last_name %>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style='border-width:0px;'>Email: </td>
+                    <td style='border-width:0px;'>
+                      <%= can_details.email %>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style='border-width:0px;'>Phone: </td>
+                    <td style='border-width:0px;'>
+                      <%= can_details.phone %>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style='border-width:0px;'>Address: </td>
+                    <td style='border-width:0px;'>
+                      <%= can_details.address %>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style='border-width:0px;'>Applied for: </td>
+                    <td style='border-width:0px;'>
+                      <%= open_details.OpeningTitle %>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style='border-width:0px;' >Consultant: </td>
+                    <td style='border-width:0px;'>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style='border-width:0px;'>
+                      <table border="0">
+                        <tr>
+                          <td style='border-width:0px;'>Technical Skills: </td>
+                          <td style='border-width:0px;'>Presentation Skills</td>
+                          <td style='border-width:0px;'>Management Skills</td>
+                        </tr>
+                        <tr>
+                          <td style='border-width:0px;'></td>
+                          <td style='border-width:0px;'></td>
+                          <td style='border-width:0px;'></td>
+                        </tr>
+                        <tr>
+                          <td style='border-width:0px;'><%= s.Con_Tech_Skills %></td>
+                          <td style='border-width:0px;'><%= s.Con_Pre_Skills %></td>
+                          <td style='border-width:0px;'><%= s.Con_Mng_Skills %></td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style='border-width:0px;'>Manager: </td>
+                    <td style='border-width:0px;'></td>
+                  </tr>
+                  <tr>
+                    <td style='border-width:0px;'>
+                      <table border="0">
+                        <tr>
+                          <td style='border-width:0px;'>Technical Skills: </td>
+                          <td style='border-width:0px;'>Presentation Skills</td>
+                          <td style='border-width:0px;'>Management Skills</td>
+                        </tr>
+                        <tr>
+                          <td style='border-width:0px;'></td>
+                          <td style='border-width:0px;'></td>
+                          <td style='border-width:0px;'></td>
+                        </tr>
+                        <tr>
+                          <td style='border-width:0px;'><%= s.Mngr_Tech_Skills %></td>
+                          <td style='border-width:0px;'><%= s.Mngr_Pre_Skills %></td>
+                          <td style='border-width:0px;'><%= s.Mngr_Mng_Skills %></td></tr>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            <hr>
+          </div>  
+          <div class="modal-footer">
+            <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Close</button>
+          </div>
+        </div>
+        </td>
+      </tr>
 
-     //   if (custom1Name.value == "") {
-       //     alert("Please submit proper Section Name");
-         //   custom1Name.focus();
-       // }
-        //else {
-          //  window.location = "create_template.php?id=" + custom1Name.value;
-         //   addElement(custom1Name.value);
-           // ModalPopups.Close("CreateTemp");
-       // }
-     ModalPopups.Cancel("CreateTemp");
-    }
-    function ModalPopupsCustom1Cancel() {
-
-        ModalPopups.Cancel("CreateTemp");
-    }
-</script>
 <% end %>
 <% end %>
  <% end %>
