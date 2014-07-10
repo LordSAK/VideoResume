@@ -34,7 +34,7 @@ class ManagersController < ApplicationController
   end
 
   def managerdecision
-    @selection_candidate = SelectionCandidate.find(:all, :conditions => [ '"ConsultantSelection" = ? and "ManagerSelection" = ?', "Yes", "Yes" ])
+      @selection_manager = SelectionCandidate.find(:all, :conditions => [ '"ManagerSelection" = ?', "Yes" ])
   end
 
   def schedule

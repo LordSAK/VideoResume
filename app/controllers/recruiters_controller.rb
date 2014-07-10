@@ -20,7 +20,7 @@ class RecruitersController < ApplicationController
     end
     
     def recruiterdecision
-    @selection_candidate = SelectionCandidate.find(:all, :conditions => [ '"ConsultantSelection" = ?', "Yes" ])    
+        @selection_candidate = SelectionCandidate.find(:all, :conditions => [ '"ManagerSelection" = ?', "Yes" ])
     end
 
     def recruiteroption

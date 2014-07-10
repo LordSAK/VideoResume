@@ -9,7 +9,7 @@
 <div id="openingmngrdec">
   		<table class="table" width="100%">
 			<th><font size="+1">Decision</font></th>
-        <% @selection_candidate.each do |s| %>
+        <% @selection_manager.each do |s| %>
         <% @candidate_details = User.where( :id => s.CandidateID ) %>
         <% @opening_details = Opening.where( :id => s.OpeningsID ) %>
         <% @candidate_details.each do |can_details| %>
