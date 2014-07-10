@@ -7,19 +7,17 @@
   </ul>
 </div>
 <div id="openingmngrdec">
-  <% @selection_candidate.each do |s| %>
-  <% @candidate_details = User.where( :id => s.CandidateID ) %>
-  <% @opening_details = Opening.where( :id => s.OpeningsID ) %>
-  <% @candidate_details.each do |can_details| %>
   		<table class="table" width="100%">
 			<th><font size="+1">Decision</font></th>
+        <% @selection_candidate.each do |s| %>
+        <% @candidate_details = User.where( :id => s.CandidateID ) %>
+        <% @opening_details = Opening.where( :id => s.OpeningsID ) %>
+        <% @candidate_details.each do |can_details| %>
 			<tr height="40px">
 				<td style='border-width:0px; font-size:small;color:#06C; vertical-align:middle; margin-left:40px;'><a href='javascript:ModalPopupsSelected()'><%= can_details.first_name + " " + can_details.last_name %></a>
 				</td>
 			</tr>
-			</table>
-</div>
-<% @opening_details.each do |open_details| %>
+      <% @opening_details.each do |open_details| %>
 <script type="text/javascript" language="javascript">
     function ModalPopupsSelected() {
         ModalPopups.Custom("CreateTemp",
@@ -54,7 +52,7 @@
          //   addElement(custom1Name.value);
            // ModalPopups.Close("CreateTemp");
        // }
-	   ModalPopups.Cancel("CreateTemp");
+     ModalPopups.Cancel("CreateTemp");
     }
     function ModalPopupsCustom1Cancel() {
 
@@ -64,3 +62,5 @@
 <% end %>
 <% end %>
  <% end %>
+			</table>
+</div>
