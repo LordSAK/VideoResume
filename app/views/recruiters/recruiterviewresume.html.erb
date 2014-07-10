@@ -23,12 +23,12 @@
         function myFunction(a) {
             alert("SAK");
             var vid=document.getElementById("water_msg_video");
-            vid.sendEvent('LOAD', a.title);
+         //   vid.sendEvent('LOAD', a.title);
             var str = a.title;
             var res = str.split("user")[1];
 
             var fina=res.split(".")[0];
-            alert(fina);
+            
             document.getElementById("candidate_id").value = fina;
         }
         
