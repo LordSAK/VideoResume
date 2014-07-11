@@ -75,11 +75,11 @@ div.row
           }
 </style>
 <% provide(:title, "Sign in") %>
-<h2 style="margin-left:30px;">Enter your login and password</h2>
+<h3 style="margin-left:30px;">Enter your login and password</h3>
 <%= form_for(:session, url: sessions_path) do |f| %>
-<table style="margin-left:30px;font-size:medium" border="1">
+<table style="margin-left:30px;font-size:medium" >
       <tr>
-          <td style="font-size:15px">
+          <td >
               Email:
           </td>
           <td> 
@@ -87,7 +87,7 @@ div.row
           </td>
       </tr>
       <tr>
-          <td style="font-size:15px">
+          <td >
               Password:
           </td>
           <td>
@@ -95,21 +95,32 @@ div.row
           </td>
       </tr>
       <tr>
-          <td style="font-size:13px">
+          <td >
             <label for="type"></label>
-            <%= radio_button_tag :type, 'Candidate' %> Candidate
+            <label class="radio inline">
+              <%= radio_button_tag :type, 'Candidate' %>Candidate &nbsp;
+            </label>
           </td>
-          <td style="font-size:13px">
-            <%= radio_button_tag :type, 'Consultant' %> Consultant
-            <%= radio_button_tag :type, 'Manager' %> Manager
+          <td >
+            <label class="radio inline">
+            <%= radio_button_tag :type, 'Consultant' %>Consultant 
+          </label>
+          <label class="radio inline">
+            <%= radio_button_tag :type, 'Manager' %>Manager
+          </label>
           </td>
       </tr>
       <tr>
+        <td>
+          <br/>
+        </td>
+      </tr>
+      <tr>
           <td>
-
+            <br/>
           </td>
           <td style="text-align:left;">
-            <%= f.submit "Login", class: "btn btn-large btn-primary", :style => "width:50px; height:22px; font-size:12px;" %>
+            <%= f.submit "Login", class: "btn btn-large btn-primary", :style => "font-size:12px;" %>
           </td>
       </tr>
 </table>

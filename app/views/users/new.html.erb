@@ -3,7 +3,7 @@
 <h1 align="center">Sign up</h1>
 <div align="center"> 
 <%= form_for(@user) do |f| %>
-  <table border align="center" >
+  <table border="0" align="center" >
     <tr>
       <td style="font-size:15px">
         First Name
@@ -314,12 +314,23 @@
         <tr>
           <td style="font-size:13px">
             <label for="type"></label>
-            <%= radio_button_tag :type, 'Candidate' %> Candidate
+            <label class="radio inline">
+              <%= radio_button_tag :type, 'Candidate' %>Candidate
+            </label>
           </td>
           <td style="font-size:13px">
-            <%= radio_button_tag :type, 'Consultant' %> Consultant
-            <%= radio_button_tag :type, 'Manager' %> Manager
+            <label class="radio inline">
+              <%= radio_button_tag :type, 'Consultant' %>Consultant
+            </label>
+            <label class="radio inline">
+              <%= radio_button_tag :type, 'Manager' %>Manager
+            </label>
             </td>
+        </tr>
+        <tr>
+          <td>
+            <br/>
+          </td>
         </tr>
         <tr>
           <td>
