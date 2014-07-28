@@ -1,7 +1,41 @@
+<script type="text/javascript">
+    $(document).ready(function(){
+      $( ".inputfileupload" ).change(function() {
+        //alert($(this).attr('id'));
+        var hasError = false;
+        var url = this.value;
+        //alert(url);
+        //var myString = url;
+        //var arr = myString.split('.')[1];
+        
+        var ext = url.substring(url.lastIndexOf('.') + 1).toLowerCase();
+        if( !(ext == "flv" || ext == "mp4") ) 
+        {
+            //var message = $("#msg").html("only flv and mp4 video files supported");
+            //message.show();
+            //hasError = true;
+            alert("Only flv and mp4 video files supported");
+            //document.getElementById("Self").value = '';
+            this.value = '';
+        }
+        else
+        {
+            hasError = false;
+            $("#msg").empty().hide();   
+        }
+        if(hasError)
+        {
+            event.preventDefault();
+        }
+       
+    });
+
+    });
+</script>
 <div id="nave" >
 	<ul id="menu" style="padding: 10px;margin: 5px">
-		<li class="sub"><a href="openings.php">Openings</a>
-		</li><li class="sub"><a href="viewresume.php">View Resume</a></li>
+		<li class="sub"><a href="/opening">Openings</a>
+		</li><li class="sub"><a href="/viewresumes">View Resume</a></li>
 	</ul>
 	<div id="opening" style="background:#C3CEE0;padding: 10px;margin: 5px auto;">
 		<table class="table" width="100%">
@@ -20,7 +54,7 @@
                             </span>
                             <br/>
 				            <span class='formw' style="font-size:small">
-                                <input type='file' id='Self' name='Self[]'/>
+                                <input type='file' id='<%= s.SectionName %>' class="inputfileupload" name='Self[]'/>
                             </span>
                             <br/>
                             <span class='rb' style="font-size:small">
@@ -37,7 +71,7 @@
 
 		
         			<div class='row' id='selfintroduction' style="font-size:small">
-                   		<span class="label">Text Resume<input type="hidden" value="ResumeText" name="SecTxtRes"/></span>
+                   		<span class="label">Text Resume<input type="hidden" value="ResumeText" name="SecTxtRes"/></span><br/>
                			<span class="formw"><input type="file" id="ResumeText" name="fileTxtRes"/></span>
                     </div>
                     
@@ -45,7 +79,7 @@
                 	<br/>     
 					<div class='row' style="font-size:small">
 						<span class='label'>
-							<Label for="Lbl_DateTime" ForeColor="#FF3300">Requested Date/Time</Label>
+							<Label for="Lbl_DateTime" ForeColor="#FF3300">Requested Date/Time</Label><br/>
         		    	</span>
 		                <span class='formw'>
                 		    <input type="text" Name="TxtBx_DateTime" class="hajanDatePicker" />

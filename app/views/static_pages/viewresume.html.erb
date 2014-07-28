@@ -15,16 +15,19 @@
 
       function myFunction(a) {
         
-        jwplayer("myElement").setup({ file: a.title, width: 200 });
+        //jwplayer("myElement").setup({ file: a.title, width: 200 });
+        var vid=document.getElementById("water_msg_video");
+        var str = a.title;
+        vid.sendEvent('LOAD', str);
       }
 
   </script>
 
 
-  <table class="table" border>
+  <table class="table" width="60%">
     <tr>
-      <th  width="25%">Candidate</th>
-      <th  width="80%">Video</th>
+      <th width="15%">Candidate</th>
+      <th width="45%">Video</th>
     </tr>
     <tr> 
       <td style="vertical-align:top;">
@@ -45,8 +48,10 @@
         <% end %>
       </td>
       <td>
-        <div id="myElement"></div>
-      
+        <!---<div id="myElement"></div>-->
+            </br>
+              <%= video_player({:file => ""}, {:width => 400, :height => 400, :id => "water_msg_video", :onclick => "alert('clicked!');"}) %>
+            </br>
 
       </td>
     </tr>
