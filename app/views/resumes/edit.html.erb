@@ -37,18 +37,12 @@ body{
 
     });
 </script>
-<head>
-<meta charset="utf-8">
-<link rel="stylesheet" href="//code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">
-<script src="//code.jquery.com/jquery-1.10.2.js"></script>
-<script src="//code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
-<link rel="stylesheet" href="/resources/demos/style.css">
 <script>
 $(function() {
 $( "#datepicker" ).datepicker();
 });
 </script>
-</head>
+
 <div id="nave" >
 	<ul id="menu" style="padding: 10px;margin: 5px">
 		<li class="sub"><a href="/opening">Openings</a>
@@ -87,15 +81,7 @@ $( "#datepicker" ).datepicker();
                         <input type='hidden' value='<%= @opening %>' name="opening_id" />
 					</div>
 					<br/>
-
-		
-        			<%#=<div class='row' id='selfintroduction' style="font-size:small">
-                   		<span class="label">Text Resume<input type="hidden" value="ResumeText" name="SecTxtRes"/></span>
-               			<span class="formw"><input type="file" id="ResumeText" name="fileTxtRes"/></span>
-                    </div>
-                    
-                    <br/>
-                	<br/>%>     
+  
 					<div class='row' style="font-size:small">
 						<span class='label'>
 							<Label for="Lbl_DateTime" ForeColor="#FF3300">Requested Date/Time</Label>

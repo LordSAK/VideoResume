@@ -8,6 +8,7 @@ address, blockquote, dl, fieldset, form, h1, h2, h3, h4, h5, h6, ol, p, table, u
 	margin:15px 0;
 }
 body {
+
 	background-color:#C3CEEE;
 	background:url("bg.png") 0 0 repeat-x;
 	font:0.8em/1.6 "arial", sans-serif;
@@ -17,6 +18,14 @@ body {
 	/*background-repeat: 0 0 repeat-x;
 	   width:100%;*/
     
+
+	/*background:url("bg2.png") 0 0 repeat-x;
+	/*background-size: cover;
+	background-size: 100%;*/
+	/*font:0.8em/1.6 "arial", sans-serif;
+	/*background-repeat: 0 0 repeat-x;
+	   width:100%;
+    height:100px;*/
 }
 a {
 	text-decoration:none;
