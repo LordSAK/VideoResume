@@ -11,7 +11,7 @@ class ResumesController < ApplicationController
   	params[:Self].each_with_index do |s,i|
   		params[:Sections].each_with_index do |sec,j|
   			if i==j
-  				File.open(Rails.root.join('public', 'data', s.original_filename+"sec"+i.to_s+"opening"+params[:opening_id]+"user"+current_user.id.to_s), 'wb') do |file|
+  				File.open(Rails.root.join('public', 'data', s.original_filename.to_s.split('.')[0]+"sec"+i.to_s+"opening"+params[:opening_id]+"user"+current_user.id.to_s+ "." +s.original_filename.to_s.split('.')[1]), 'wb') do |file|
   					file.write(s.read)
   					puts params[sec]
             path="/data/"+s.original_filename.to_s.split('.')[0]+"sec"+i.to_s+"opening"+params[:opening_id]+"user"+current_user.id.to_s+"."+s.original_filename.to_s.split('.')[1]

@@ -1,3 +1,7 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script src="js/mediaelement-and-player.min.js"></script>
+<link rel="stylesheet" href="css/style.css" media="screen">
+
 <div id="nave">
   <ul id="menu">
     <li class="sub">
@@ -22,8 +26,8 @@
         
         function myFunction(a) {
             var vid=document.getElementById("water_msg_video");
-         //   vid.sendEvent('LOAD', a.title);
             var str = a.title;
+            vid.sendEvent('LOAD', str);
             var res = str.split("user")[1];
 
             var fina=res.split(".")[0];
@@ -32,6 +36,11 @@
         }
         
     </script>
+    <style type="text/css">
+body{
+background-color:#C3CEEE;
+}
+</style>
 <%= form_for(:recruiterviewresume,:html => {:id => "recruiterviewresume"}) do |f| %>
     <table class="table" width="100%">
         <tr>
@@ -61,7 +70,7 @@
             </td>
             <td style="text-align:center;">
             </br>
-                <%= video_player({:file => "/video/water_msg.flv"}, {:width => 400, :height => 400, :id => "water_msg_video", :onclick => "alert('clicked!');"}) %>
+                <%= video_player({:file => ""}, {:width => 470, :height => 400, :id => "water_msg_video", :onclick => "alert('clicked!');"}) %>
             </br>
 <!---                <button style="float:left" class="stylbutton" type="button" onclick="totalselect();showDiv('prev');">Previous</button>
                 <button style="float:right" class="stylbutton"type="button" onclick="totalselect();showDiv('next');">Next</button>-->

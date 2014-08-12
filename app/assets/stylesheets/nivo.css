@@ -1,22 +1,22 @@
 .nivoSlider {
-	position:relative;
+    position:relative;
 }
 .nivoSlider img {
-	position:absolute;
-	top:0;
-	left:0;
+    position:absolute;
+    top:0px;
+    left:0px;
 }
 .nivoSlider a.nivo-imageLink {
-	position:absolute;
-	top:0;
-	left:0;
-	width:100%;
-	height:100%;
-	border:0;
-	padding:0;
-	margin:0;
-	z-index:60;
-	display:none;
+    position:absolute;
+    top:0px;
+    left:0px;
+    width:100%;
+    height:100%;
+    border:0;
+    padding:0;
+    margin:0;
+    z-index:60;
+    display:none;
 }
 .nivo-slice {
 	display:block;
